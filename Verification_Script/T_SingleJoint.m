@@ -9,6 +9,6 @@ function T = T_SingleJoint(OX	 ,OY    ,OZ    ,PX    ,PY	 ,PZ)
 %   PZ: relativ offset along new z axis
 
 
-T =trotx(OX) *troty(OY)*trotz(OZ)*transl(PX,PY,PZ);
+T =transl(PX,PY,PZ)*trotx(OX) *troty(OY)*trotz(OZ);
 
 end
