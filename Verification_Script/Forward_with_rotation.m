@@ -1,11 +1,11 @@
 clear all
 
-q1_deg=0;
-q2_deg=0;
-q3_deg=0;
-q4_deg=0;
-q5_deg=0;
-q6_deg=0;
+q1_deg=-10;
+q2_deg=-20;
+q3_deg=-30;
+q4_deg=-40;
+q5_deg=-50;
+q6_deg=-60;
 
 q_deg=[q1_deg,q2_deg,q3_deg,q4_deg,q5_deg,q6_deg];
 q=deg2rad(q_deg);
