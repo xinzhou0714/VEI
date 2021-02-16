@@ -1,0 +1,32 @@
+Mass properties of ShoulderLink_Assemble
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 7.100 kilograms
+
+Volume = 3073638.869 cubic millimeters
+
+Surface area = 174117.321  square millimeters
+
+Center of mass: ( millimeters )
+	X = -0.005
+	Y = -11.616
+	Z = 78.477
+
+Principal axes of inertia and principal moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass.
+	 Ix = ( 0.000, -0.580,  0.815)   	Px = 21966.700
+	 Iy = ( 0.004, -0.815, -0.580)   	Py = 26165.259
+	 Iz = ( 1.000,  0.003,  0.002)   	Pz = 26512.335
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass and aligned with the output coordinate system.
+	Lxx = 26512.330	Lxy = 0.086	Lxz = -2.335
+	Lyx = 0.086	Lyy = 24755.114	Lyz = -1982.947
+	Lzx = -2.335	Lzy = -1982.947	Lzz = 23376.850
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the output coordinate system.
+	Ixx = 71197.020	Ixy = 0.468	Ixz = -4.920
+	Iyx = 0.468	Iyy = 68481.717	Iyz = -8455.499
+	Izx = -4.920	Izy = -8455.499	Izz = 24334.938

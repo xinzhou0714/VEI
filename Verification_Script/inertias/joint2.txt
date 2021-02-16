@@ -1,0 +1,32 @@
+Mass properties of UpperArm_Assemble
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 12.700 kilograms
+
+Volume = 8712574.958 cubic millimeters
+
+Surface area = 478500.856  square millimeters
+
+Center of mass: ( millimeters )
+	X = -251.040
+	Y = 0.006
+	Z = 84.338
+
+Principal axes of inertia and principal moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass.
+	 Ix = ( 1.000,  0.000, -0.010)   	Px = 29374.831
+	 Iy = (-0.010, -0.002, -1.000)   	Py = 660107.160
+	 Iz = ( 0.000,  1.000, -0.002)   	Pz = 662793.278
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass and aligned with the output coordinate system.
+	Lxx = 29433.434	Lxy = -19.739	Lxz = -6079.382
+	Lyx = -19.739	Lyy = 662793.267	Lyz = 5.366
+	Lzx = -6079.382	Lzy = 5.366	Lzz = 660048.567
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the output coordinate system.
+	Ixx = 119766.236	Ixy = -38.853	Ixz = -274964.526
+	Iyx = -38.853	Iyy = 1553491.157	Iyz = 11.787
+	Izx = -274964.526	Izy = 11.787	Izz = 1460413.656

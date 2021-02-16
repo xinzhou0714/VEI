@@ -1,0 +1,32 @@
+Mass properties of Wrist1_Assemble
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 2.000 kilograms
+
+Volume = 728523.701 cubic millimeters
+
+Surface area = 69637.068  square millimeters
+
+Center of mass: ( millimeters )
+	X = -9.736
+	Y = -0.002
+	Z = 46.398
+
+Principal axes of inertia and principal moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass.
+	 Ix = ( 0.903,  0.000, -0.430)   	Px = 2307.527
+	 Iy = (-0.430,  0.000, -0.903)   	Py = 2949.245
+	 Iz = ( 0.000,  1.000,  0.000)   	Pz = 3061.160
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass and aligned with the output coordinate system.
+	Lxx = 2426.276	Lxy = -0.140	Lxz = -249.203
+	Lyx = -0.140	Lyy = 3061.160	Lyz = 0.111
+	Lzx = -249.203	Lzy = 0.111	Lzz = 2830.495
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the output coordinate system.
+	Ixx = 6731.854	Ixy = -0.094	Ixz = -1152.672
+	Iyx = -0.094	Iyy = 7556.319	Iyz = -0.113
+	Izx = -1152.672	Izy = -0.113	Izz = 3020.076

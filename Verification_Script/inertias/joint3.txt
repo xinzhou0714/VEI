@@ -1,0 +1,32 @@
+Mass properties of LowerArm_Assemble
+     Configuration: Default
+     Coordinate system: -- default --
+
+Mass = 4.270 kilograms
+
+Volume = 4653433.616 cubic millimeters
+
+Surface area = 318944.194  square millimeters
+
+Center of mass: ( millimeters )
+	X = -256.928
+	Y = 0.001
+	Z = -56.470
+
+Principal axes of inertia and principal moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass.
+	 Ix = ( 1.000,  0.000,  0.000)   	Px = 5529.464
+	 Iy = ( 0.000,  0.001, -1.000)   	Py = 182684.791
+	 Iz = ( 0.000,  1.000,  0.001)   	Pz = 183014.916
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass and aligned with the output coordinate system.
+	Lxx = 5529.504	Lxy = -0.762	Lxz = -84.594
+	Lyx = -0.762	Lyy = 183014.916	Lyz = -0.378
+	Lzx = -84.594	Lzy = -0.378	Lzz = 182684.751
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the output coordinate system.
+	Ixx = 19145.827	Ixy = -1.596	Ixz = 61867.364
+	Iyx = -1.596	Iyy = 478502.132	Iyz = -0.561
+	Izx = 61867.364	Izy = -0.561	Izz = 464555.644

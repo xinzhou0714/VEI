@@ -1,0 +1,2 @@
+﻿Joint Name,Mass[kg],Px[mm],Py[mm],Pz[mm],Ixx [kg*mm2],Iyy[kg*mm2],Izz[kg*mm2],Ixy[kg*mm2],Ixz[kg*mm2],Iyz[kg*mm2]
+Load_equal,31.334,-809.085,0.003,111.566,280643.809,8327483.235,8100138.381,22.568,-647157.752,1.665

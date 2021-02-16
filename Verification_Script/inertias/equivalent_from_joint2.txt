@@ -1,0 +1,32 @@
+Mass properties of selected components
+     Coordinate system: CS2_equal
+
+The center of mass and the moments of inertia are output in the coordinate system of UR10_MaxLoad_FrameAdjusted
+Mass = 31.334 kilograms
+
+Volume = 15982006.102 cubic millimeters
+
+Surface area = 1018088.596  square millimeters
+
+Center of mass: ( millimeters )
+	X = -809.085
+	Y = 0.003
+	Z = 111.566
+
+Principal axes of inertia and principal moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass.
+	 Ix = ( 0.997,  0.000, -0.082)   	Px = 227445.600
+	 Iy = (-0.082,  0.000, -0.997)   	Py = 8153336.590
+	 Iz = ( 0.000,  1.000,  0.000)   	Pz = 8327483.235
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the center of mass and aligned with the output coordinate system.
+	Lxx = 280643.809	Lxy = 22.568	Lxz = -647157.752
+	Lyx = 22.568	Lyy = 8327483.235	Lyz = 1.665
+	Lzx = -647157.752	Lzy = 1.665	Lzz = 8100138.381
+
+Moments of inertia: ( kilograms *  square millimeters )
+Taken at the output coordinate system.
+	Ixx = 670660.325	Ixy = -47.599	Ixz = -3475592.224
+	Iyx = -47.599	Iyy = 29229558.213	Iyz = 11.340
+	Izx = -3475592.224	Izy = 11.340	Izz = 28612196.845
