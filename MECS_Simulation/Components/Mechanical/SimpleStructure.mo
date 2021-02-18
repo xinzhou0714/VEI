@@ -12,7 +12,17 @@ model SimpleStructure
       color = {255, 255, 0}, 
       thickness = 3.0, 
       arrow = {Arrow.None, Arrow.Filled})}));
-  Joint_rotational joint_rotational
+  Joint_rotational joint_rotational(frameRotation(angles = {90, 0, 0}, rotationType = Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence), body(r_CM = {-0.809, 0, 0.112}, I_11 = 0.281, I_22 = 8.327, I_33 = 8.100, I_31 = -3.476, r = {-1, 0, 0}, 
+    m
+     = 31.334, 
+    I_21
+     = 0, 
+    I_32
+     = 0, 
+    animateSphere
+     = true, 
+    animation
+     = true))
     annotation (Placement(transformation(origin = {-86.0, 1.7763568394002505e-15}, 
       extent = {{-40.0, -46.0}, {40.0, 46.0}}, 
       rotation = 90.0)));

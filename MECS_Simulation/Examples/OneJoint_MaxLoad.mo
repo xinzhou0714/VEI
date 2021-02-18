@@ -19,11 +19,8 @@ model OneJoint_MaxLoad
     grid = {2.0, 2.0})), 
     Icon(coordinateSystem(extent = {{-100.0, -100.0}, {100.0, 100.0}}, 
       preserveAspectRatio = false, 
-      grid = {2.0, 2.0})));
-  Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning1 pathPlanning1_1
-    annotation (Placement(transformation(origin = {-76.0, -6.0}, 
-      extent = {{-10.0, -10.0}, {10.0, 10.0}})));
-  Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType1 axisType1_1
-    annotation (Placement(transformation(origin = {16.0, -4.0}, 
-      extent = {{-10.0, -10.0}, {10.0, 10.0}})));
+      grid = {2.0, 2.0})), 
+    experiment(StartTime = 0, StopTime = 5, NumberOfIntervals = 500, Algorithm = "Dassl", Tolerance = 0.0001, DoublePrecision = true, StoreEventValue = true));Components.Mechanical.SimpleStructure simpleStructure(joint_rotational(frameOfReference(animation = true)))
+    annotation (Placement(transformation(origin = {0.0, -16.0}, 
+      extent = {{-20.0, -20.0}, {20.0, 20.0}})));
 end OneJoint_MaxLoad;

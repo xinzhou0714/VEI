@@ -65,10 +65,7 @@ model Joint_rotational
       66, -30}}, rotation = 0)));
   Modelica.Mechanics.MultiBody.Joints.Revolute joint(animation = 
     false, 
-    useAxisFlange = true, 
-    a(fixed = false), 
-    phi(fixed = false, start = (angleInitial) * (3.14159265358979323846 / 180)), 
-    w(fixed = false))
+    useAxisFlange = true)
     annotation (Placement(transformation(extent = {{-10, -10}, {10, 10}}, 
       rotation = 0)));
   Modelica.Mechanics.MultiBody.Parts.FixedRotation frameRotation(animation = 
