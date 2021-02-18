@@ -110,3 +110,21 @@ junit.xml
 *.code-workspace
 .history
 .vscode
+
+
+###   Modelica
+
+
+*~
+*.bak
+*.bak-mo
+*.exe
+*.exp
+*.la
+*.lo
+*.m4
+*.o
+*.pyc
+.deps
+.dirstamp
+.libs
