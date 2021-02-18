@@ -1,0 +1,36 @@
+﻿within MECS_Simulation.Examples;
+model MotorNoControl
+  extends Modelica.Icons.Example;
+  annotation (Diagram(coordinateSystem(extent = {{-140.0, -100.0}, {140.0, 100.0}}, 
+    preserveAspectRatio = false, 
+    grid = {2.0, 2.0})), 
+    Icon(coordinateSystem(extent = {{-100.0, -100.0}, {100.0, 100.0}}, 
+      preserveAspectRatio = false, 
+      grid = {2.0, 2.0})), 
+    experiment(StartTime = 0, StopTime = 100, Interval = 0.01, Algorithm = "Dassl", Tolerance = 0.0001, DoublePrecision = true, StoreEventValue = true));
+  Components.Electrical.DC_Motor_Ideal dC_Motor(
+    Ra(R = 10000), La(L = 0.004), Jmotor(J = 10), 
+    emf(k
+       = 1)) annotation (Placement(transformation(origin = {-10.0, -10.0}, 
+        extent = {{-10.0, -10.0}, {10.0, 10.0}})));
+  Modelica.Electrical.Analog.Sources.StepVoltage stepVoltage(V = 12)
+    annotation (Placement(transformation(origin = {-72.0, -2.0}, 
+      extent = {{-10.0, -10.0}, {10.0, 10.0}}, 
+      rotation = 270.0)));
+  Modelica.Electrical.Analog.Basic.Ground ground
+    annotation (Placement(transformation(origin = {-50.0, -40.0}, 
+      extent = {{-10.0, -10.0}, {10.0, 10.0}})));
+equation 
+  connect(stepVoltage.n, ground.p)
+    annotation (Line(origin = {-61.0, -21.0}, 
+      points = {{-11.0, 9.0}, {-11.0, -9.0}, {11.0, -9.0}}, 
+      color = {0, 0, 255}));
+  connect(stepVoltage.p, dC_Motor.mot_p)
+    annotation (Line(origin = {-37.0, 5.0}, 
+      points = {{-35.0, 3.0}, {-35.0, 5.0}, {34.0, 5.0}, {34.0, -5.0}}, 
+      color = {0, 0, 255}));
+  connect(dC_Motor.mot_n, ground.p)
+    annotation (Line(origin = {-32.0, -14.0}, 
+      points = {{17.0, 14.0}, {17.0, 16.0}, {10.0, 16.0}, {10.0, -16.0}, {-18.0, -16.0}}, 
+      color = {0, 0, 255}));
+end MotorNoControl;

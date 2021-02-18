@@ -1,0 +1,122 @@
+﻿within MECS_Simulation.Components.Electrical;
+model DC_Motor_Ideal "Permanet Magnet DC Motor"
+  annotation (Diagram(coordinateSystem(extent = {{-140.0, -100.0}, {140.0, 100.0}}, 
+    preserveAspectRatio = false, 
+    grid = {2.0, 2.0})), 
+    Icon(coordinateSystem(extent = {{-100.0, -100.0}, {100.0, 100.0}}, 
+      preserveAspectRatio = false, 
+      grid = {2.0, 2.0}), graphics = {Rectangle(origin = {0.0, -74.0}, 
+      fillPattern = FillPattern.Solid, 
+      lineThickness = 1.0, 
+      extent = {{-40.0, 4.0}, {40.0, -4.0}}), Rectangle(origin = {0.0, -65.0}, 
+      fillPattern = FillPattern.Solid, 
+      lineThickness = 1.0, 
+      extent = {{-30.0, 5.0}, {30.0, -5.0}}), Rectangle(origin = {0.0, -18.0}, 
+      fillPattern = FillPattern.Solid, 
+      lineThickness = 1.0, 
+      extent = {{-40.0, 38.0}, {40.0, -38.0}}), Line(origin = {0.0, -50.0}, 
+      points = {{-32.0, 0.0}, {32.0, 0.0}}, 
+      color = {255, 255, 255}, 
+      thickness = 4.0), Line(origin = {0.0, -40.0}, 
+      points = {{-32.0, 0.0}, {32.0, 0.0}}, 
+      color = {255, 255, 255}, 
+      thickness = 4.0), Line(origin = {0.0, -30.0}, 
+      points = {{-32.0, 0.0}, {32.0, 0.0}}, 
+      color = {255, 255, 255}, 
+      thickness = 4.0), Line(origin = {0.0, -20.0}, 
+      points = {{-32.0, 0.0}, {32.0, 0.0}}, 
+      color = {255, 255, 255}, 
+      thickness = 4.0), Line(origin = {0.0, -10.0}, 
+      points = {{-32.0, 0.0}, {32.0, 0.0}}, 
+      color = {255, 255, 255}, 
+      thickness = 4.0), Line(origin = {0.0, 0.0}, 
+      points = {{-32.0, 0.0}, {32.0, 0.0}}, 
+      color = {255, 255, 255}, 
+      thickness = 4.0), Line(origin = {0.0, 10.0}, 
+      points = {{-32.0, 0.0}, {32.0, 0.0}}, 
+      color = {255, 255, 255}, 
+      thickness = 4.0), Rectangle(origin = {-52.0, -18.0}, 
+      fillPattern = FillPattern.Solid, 
+      extent = {{-8.0, 38.0}, {8.0, -38.0}}), Rectangle(origin = {-61.0, -18.0}, 
+      fillPattern = FillPattern.Solid, 
+      extent = {{-9.0, 28.0}, {9.0, -28.0}}), Ellipse(origin = {-60.0, 10.0}, 
+      fillPattern = FillPattern.Solid, 
+      extent = {{-10.0, 10.0}, {10.0, -10.0}}, 
+      startAngle = 90.0, 
+      endAngle = 180.0), Ellipse(origin = {-60.0, -46.0}, 
+      fillPattern = FillPattern.Solid, 
+      extent = {{-10.0, 10.0}, {10.0, -10.0}}, 
+      startAngle = 180.0, 
+      endAngle = 270.0), Rectangle(origin = {52.0, -18.0}, 
+      fillPattern = FillPattern.Solid, 
+      extent = {{8.0, 38.0}, {-8.0, -38.0}}), Rectangle(origin = {56.0, -18.0}, 
+      fillPattern = FillPattern.Solid, 
+      extent = {{9.0, 33.0}, {-9.0, -33.0}}), Ellipse(origin = {60.0, 15.0}, 
+      fillPattern = FillPattern.Solid, 
+      extent = {{5.0, 5.0}, {-5.0, -5.0}}, 
+      endAngle = 90.0), Ellipse(origin = {60.0, -51.0}, 
+      fillPattern = FillPattern.Solid, 
+      extent = {{5.0, 5.0}, {-5.0, -5.0}}, 
+      startAngle = 270.0), Rectangle(origin = {69.5, -18.0}, 
+      fillPattern = FillPattern.Solid, 
+      extent = {{2.5, 22.5}, {-2.5, -22.5}}), Rectangle(origin = {83.5, -18.0}, 
+      fillPattern = FillPattern.Solid, 
+      extent = {{10.5, 4.5}, {-10.5, -4.5}}), Rectangle(origin = {-35.5, 25.75}, 
+      fillPattern = FillPattern.Solid, 
+      extent = {{23.5, 4.25}, {-23.5, -4.25}}), Rectangle(origin = {-35.5, 33.75}, 
+      fillPattern = FillPattern.Solid, 
+      extent = {{15.5, 2.25}, {-15.5, -2.25}}), Line(origin = {24.0, 67.0}, 
+      points = {{-48.0, -33.0}, {-48.0, 1.0}, {48.0, 1.0}, {48.0, 33.0}}, 
+      color = {0, 0, 255}, 
+      thickness = 2.0), Line(origin = {-46.0, 66.0}, 
+      points = {{0.0, -32.0}, {0.0, 2.0}, {0.0, 32.0}}, 
+      color = {255, 0, 0}, 
+      thickness = 2.0)}));
+  Modelica.Electrical.Analog.Basic.EMF emf(k = k, useSupport = false)
+    annotation (Placement(transformation(origin = {72.0, -48.0}, 
+      extent = {{-10.0, -10.0}, {10.0, 10.0}})));
+  Modelica.Electrical.Analog.Basic.Resistor Ra
+    annotation (Placement(transformation(origin = {72.0, 46.0}, 
+      extent = {{-10.0, -10.0}, {10.0, 10.0}}, 
+      rotation = 270.0)));
+  Modelica.Electrical.Analog.Basic.Inductor La
+    annotation (Placement(transformation(origin = {72.0, -2.0}, 
+      extent = {{-10.0, -10.0}, {10.0, 10.0}}, 
+      rotation = 270.0)));
+  Modelica.Electrical.Analog.Interfaces.PositivePin mot_p "Positive DC output" 
+    annotation (Placement(transformation(origin = {72.0, 96.0}, 
+      extent = {{-10.0, -10.0}, {10.0, 10.0}})));
+  Modelica.Electrical.Analog.Interfaces.NegativePin mot_n "Negative DC output" 
+    annotation (Placement(transformation(origin = {-46.0, 96.0}, 
+      extent = {{-10.0, -10.0}, {10.0, 10.0}})));
+  Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
+    annotation (Placement(transformation(origin = {96.0, -18.0}, 
+      extent = {{-10.0, -10.0}, {10.0, 10.0}})));
+  Modelica.Mechanics.Rotational.Components.Inertia Jmotor(
+    J = J)
+    annotation (Placement(transformation(origin = {102.0, -48.0}, 
+      extent = {{-8.0, -8.0}, {8.0, 8.0}})));
+equation 
+  connect(Ra.p, mot_p)
+    annotation (Line(origin = {72.0, 76.0}, 
+      points = {{0.0, -20.0}, {0.0, 20.0}}, 
+      color = {0, 0, 255}));
+  connect(Ra.n, La.p)
+    annotation (Line(origin = {71.0, 22.0}, 
+      points = {{1.0, 14.0}, {1.0, -14.0}}, 
+      color = {0, 0, 255}));
+  connect(La.n, emf.p)
+    annotation (Line(origin = {71.0, -25.0}, 
+      points = {{1.0, 13.0}, {1.0, -13.0}}, 
+      color = {0, 0, 255}));
+  connect(emf.n, mot_n)
+    annotation (Line(origin = {13.0, 18.0}, 
+      points = {{59.0, -76.0}, {59.0, -78.0}, {-59.0, -78.0}, {-59.0, 78.0}}, 
+      color = {0, 0, 255}));
+  connect(emf.flange, Jmotor.flange_a)
+    annotation (Line(origin = {90.0, -49.0}, 
+      points = {{-8.0, 1.0}, {4.0, 1.0}}));
+  connect(Jmotor.flange_b, flange_b)
+    annotation (Line(origin = {104.0, -33.0}, 
+      points = {{6.0, -15.0}, {8.0, -15.0}, {8.0, -5.0}, {-8.0, -5.0}, {-8.0, 15.0}}));
+end DC_Motor_Ideal;
