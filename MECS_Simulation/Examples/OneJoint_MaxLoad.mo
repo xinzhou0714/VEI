@@ -2,6 +2,18 @@
 model OneJoint_MaxLoad
   extends Modelica.Icons.Example;
   import SI = Modelica.SIunits;
+  parameter Real kp = 5 "Gain of position controller of axis 2";
+  parameter Real ks = 0.5 "Gain of speed controller of axis 2";
+  parameter SI.Time Ts = 0.05
+    "Time constant of integrator of speed controller of axis 2";
+  parameter Real startAngle(unit = "deg") = 0 "Start angle of axis 2";
+  parameter Real endAngle(unit = "deg") = 120 "End angle of axis 2";
+
+  parameter SI.Time swingTime = 0.5
+    "Additional time after reference motion is in rest before simulation is stopped";
+  parameter SI.AngularVelocity refSpeedMax = 3 "Maximum reference speed";
+  parameter SI.AngularAcceleration refAccMax = 10
+    "Maximum reference acceleration";
   annotation (Diagram(coordinateSystem(extent = {{-140.0, -100.0}, {140.0, 100.0}}, 
     preserveAspectRatio = false, 
     grid = {2.0, 2.0})), 
