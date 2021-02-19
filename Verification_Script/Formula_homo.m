@@ -10,6 +10,7 @@ syms vx [1 6]  %%% link displacement in x direction
 syms vy [1 6]  %%% link displacement in y direction
 syms vz [1 6]  %%% link displacement in z direction
 
+syms L [1 2]  %%% link length for 3DOF
 %%%% Rx
 Rx1_1(alpha)=1;
 Rx2_1(alpha)=0;
@@ -67,7 +68,7 @@ Rz4_2(gamma)=0;
 Rz1_3(gamma)=0;
 Rz2_3(gamma)=0;
 Rz3_3(gamma)=1;
-Rz4_3(gamma)=1;
+Rz4_3(gamma)=0;
 
 Rz1_4(gamma)=0;
 Rz2_4(gamma)=0;
@@ -79,8 +80,17 @@ subs(Rx(alpha)* Ry(beta)*Rz(gamma+q));
 
 %%%% translation+ rotation
 
-transl(vx1,vx2,vx3)*subs(Rx(alpha)* Ry(beta)*Rz(gamma))
+transl(vx1,vx2,vx3)*subs(Rx(alpha)* Ry(beta)*Rz(gamma));
 
 %%%% rotation +translation
 
 subs(Rx(alpha)* Ry(beta)*Rz(gamma))*transl(2,3,4);
+
+
+Tb1=subs(Rz(q1))
+T12=subs(transl(L1,0,0)*Rz(q2))
+T2ee=subs(transl(L2,0,0)*Rz(q3))
+
+Tbee=subs(Tb1*T12*T2ee);
+
+expand(Tbee )
