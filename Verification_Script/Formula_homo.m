@@ -68,5 +68,13 @@ Rz2_4(gamma)=0;
 Rz3_4(gamma)=0;
 Rz4_4(gamma)=1;
 
+%%%%Pure rotation
+subs(Rx(alpha)* Ry(beta)*Rz(gamma+q))
 
-subs(Rx(alpha)* Ry(beta)*Rz(gamma))
+%%%% translation+ rotation
+
+transl(2,3,4)*subs(Rx(alpha)* Ry(beta)*Rz(gamma+q))
+
+%%%% rotation +translation
+
+subs(Rx(alpha)* Ry(beta)*Rz(gamma+q))*transl(2,3,4)
