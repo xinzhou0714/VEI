@@ -44,4 +44,4 @@ Rz2_3(gamma)=0;
 Rz3_3(gamma)=1;
 
 
-subs(Rx(alpha)* Ry(beta)*Rz(gamma+q))
+subs(Rx(alpha)* Ry(beta)*Rz(gamma))
