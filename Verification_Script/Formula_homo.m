@@ -1,8 +1,14 @@
 clear all
-syms alpha  beta gamma q
+
+syms alpha  beta gamma 
 syms Rx(alpha) 4
 syms Ry(beta) 4
 syms Rz(gamma) 4
+
+syms q [1 6]
+syms vx [1 6]  %%% link displacement in x direction
+syms vy [1 6]  %%% link displacement in y direction
+syms vz [1 6]  %%% link displacement in z direction
 
 %%%% Rx
 Rx1_1(alpha)=1;
@@ -69,12 +75,12 @@ Rz3_4(gamma)=0;
 Rz4_4(gamma)=1;
 
 %%%%Pure rotation
-subs(Rx(alpha)* Ry(beta)*Rz(gamma+q))
+subs(Rx(alpha)* Ry(beta)*Rz(gamma+q));
 
 %%%% translation+ rotation
 
-transl(2,3,4)*subs(Rx(alpha)* Ry(beta)*Rz(gamma+q))
+transl(vx1,vx2,vx3)*subs(Rx(alpha)* Ry(beta)*Rz(gamma))
 
 %%%% rotation +translation
 
-subs(Rx(alpha)* Ry(beta)*Rz(gamma+q))*transl(2,3,4)
+subs(Rx(alpha)* Ry(beta)*Rz(gamma))*transl(2,3,4);
