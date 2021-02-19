@@ -86,7 +86,7 @@ subs(Rx(alpha)* Ry(beta)*Rz(gamma));
 
 %%%% translation+ rotation
 
-transl(vx1,vx2,vx3)*subs(Rx(alpha)* Ry(beta)*Rz(gamma));
+transl(vx1,vy1,vz1)*subs(Rx(alpha)* Ry(beta)*Rz(gamma));
 
 %%%% rotation +translation
 
@@ -100,3 +100,7 @@ T2ee=subs(transl(L2,0,0)*Rz(q3))
 Tbee=subs(Tb1*T12*T2ee);
 
 expand(Tbee )
+
+x=Tbee(1,4)
+y=Tbee(2,4)
+Z=Tbee(3,4)
