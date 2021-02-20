@@ -11,6 +11,8 @@ syms vy [1 6]  %%% link displacement in y direction
 syms vz [1 6]  %%% link displacement in z direction
 
 syms L [1 2]  %%% link length for 3DOF
+H=sym("H");
+
 %%%% Rx
 Rx= @(x) trotx(x);
 
@@ -93,20 +95,28 @@ transl(vx1,vy1,vz1)*subs(Rx(alpha)* Ry(beta)*Rz(gamma));
 subs(Rx(alpha)* Ry(beta)*Rz(gamma))*transl(2,3,4);
 
 
-Tb1=subs(Rz(q1))
+% Tb1=subs(Rz(q1))
+% T12=subs(transl(L1,0,0)*Rz(q2))
+% T2ee=subs(transl(L2,0,0)*Rz(q3))
+% 
+% 
+% Tb2=subs(Tb1*T12);
+% Tbee=subs(Tb1*T12*T2ee);
+% 
+% expand(Tbee )
+
+% A=sym("A")
+
+Tb1=subs(transl(0,0,H)*Rx(pi/2)*Rz(q1))
 T12=subs(transl(L1,0,0)*Rz(q2))
 T2ee=subs(transl(L2,0,0)*Rz(q3))
 
-
-Tb2=subs(Tb1*T12);
-Tbee=subs(Tb1*T12*T2ee);
-
-expand(Tbee )
-
+Tb2=subs(Tb1*T12)
+Tbee=subs(Tb1*T12*T2ee)
 
 x=Tbee(1,4)
 y=Tbee(2,4)
 Z=Tbee(3,4)
 
 
-
+Rx(pi/2)*Ry(0)*Rz(gamma)
