@@ -97,10 +97,16 @@ Tb1=subs(Rz(q1))
 T12=subs(transl(L1,0,0)*Rz(q2))
 T2ee=subs(transl(L2,0,0)*Rz(q3))
 
+
+Tb2=subs(Tb1*T12);
 Tbee=subs(Tb1*T12*T2ee);
 
 expand(Tbee )
 
+
 x=Tbee(1,4)
 y=Tbee(2,4)
 Z=Tbee(3,4)
+
+
+
