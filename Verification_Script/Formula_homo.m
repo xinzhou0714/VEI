@@ -127,6 +127,15 @@ cq2=sym("cq2")  %% cos(q2)
 
 cq2=solve(L1^2 + 2*cq2*L1*L2 + L2^2==X^2+(Z-H)^2,cq2)
 
-tan=sym("tan")  %% tan(q1)
-tan=solve(X/(Z-H)==(L1+L2*cos(q2)+L2*sin(q2)*tan)/(L2*sin(q2)+(L1+L2*cos(q2))*tan),tan)
+tq1=sym("tq1")  %% tan(q1)
+tq1=solve(X/(Z-H)==(L1+L2*cos(q2)-L2*sin(q2)*tq1)/(L2*sin(q2)+(L1+L2*cos(q2))*tq1),tq1)
+
+
+%%%%% testing
+
+L1=2;L2=1;H=0;q1=pi/4; q2=pi/4;q3=0;
+X=subs(x)
+Z=subs(z)
+double(subs(cq2))
+double(subs(tq1))
 
