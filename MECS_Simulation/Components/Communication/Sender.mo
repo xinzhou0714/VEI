@@ -1,11 +1,11 @@
 ﻿within MECS_Simulation.Components.Communication;
 model Sender
-  annotation (Diagram(coordinateSystem(extent = {{-140.0, -100.0}, {140.0, 100.0}}, 
-    preserveAspectRatio = false, 
-    grid = {2.0, 2.0})), 
-    Icon(coordinateSystem(extent = {{-100.0, -100.0}, {100.0, 100.0}}, 
-      preserveAspectRatio = false, 
-      grid = {2.0, 2.0}), graphics = {Bitmap(origin = {3.0, -21.0}, 
-      extent = {{-109.0, -69.0}, {109.0, 69.0}}, 
+  annotation (
+    Diagram(coordinateSystem(extent = {{-200.0, -200.0}, {200.0, 200.0}}, 
+      grid = {2.0, 2.0})), 
+    
+    Icon(coordinateSystem(extent = {{-200.0, -200.0}, {200.0, 200.0}}, 
+      grid = {2.0, 2.0}), graphics = {Bitmap(origin = {0.0, 0.0}, 
+      extent = {{-200.0, -200.0}, {200.0, 200.0}}, 
       fileName = "modelica://MECS_Simulation/Resources/Images/sender.png")}));
 end Sender;
