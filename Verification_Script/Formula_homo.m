@@ -12,7 +12,7 @@ syms vz [1 6]  %%% link displacement in z direction
 
 syms L [1 2]  %%% link length for 3DOF
 H=sym("H");
-
+syms X Y Z
 %%%% Rx
 Rx= @(x) trotx(x);
 
@@ -116,7 +116,17 @@ Tbee=subs(Tb1*T12*T2ee)
 
 x=Tbee(1,4)
 y=Tbee(2,4)
-Z=Tbee(3,4)
+z=Tbee(3,4)
 
 
 Rx(pi/2)*Ry(0)*Rz(gamma)
+
+simplify(x^2+(z-H)^2)
+
+cq2=sym("cq2")  %% cos(q2)
+
+cq2=solve(L1^2 + 2*cq2*L1*L2 + L2^2==X^2+(Z-H)^2,cq2)
+
+tan=sym("tan")  %% tan(q1)
+tan=solve(X/(Z-H)==(L1+L2*cos(q2)+L2*sin(q2)*tan)/(L2*sin(q2)+(L1+L2*cos(q2))*tan),tan)
+
