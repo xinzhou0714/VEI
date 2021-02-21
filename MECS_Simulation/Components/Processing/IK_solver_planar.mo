@@ -3,6 +3,7 @@ model IK_solver_planar
   annotation (Diagram(coordinateSystem(extent = {{-140.0, -100.0}, {140.0, 100.0}}, 
     preserveAspectRatio = false, 
     grid = {2.0, 2.0})), 
+    
     Icon(coordinateSystem(extent = {{-100.0, -100.0}, {100.0, 100.0}}, 
       preserveAspectRatio = false, 
       grid = {2.0, 2.0}), graphics = {Rectangle(origin = {-69.0, -3.0}, 
@@ -46,24 +47,27 @@ model IK_solver_planar
       extent = {{-90.0, 74.0}, {90.0, -74.0}}), Text(origin = {1.8303030303030141, 84.16969696969696}, 
       extent = {{-58.169696969696965, 12.169696969696972}, {58.169696969696986, -12.169696969696957}}, 
       textString = "%name", 
-      textStyle = {TextStyle.None})}));
+      textStyle = {TextStyle.None}), Line(origin = {-68.00000000000001, 29.0}, 
+      points = {{-9.999999999999986, 5.0}, {10.000000000000014, -5.0}}, 
+      color = {255, 0, 0}, 
+      thickness = 3.0), Line(origin = {-70.00000000000001, -11.0}, 
+      points = {{-9.999999999999986, 5.0}, {10.000000000000014, -5.0}}, 
+      color = {255, 0, 0}, 
+      thickness = 3.0), Line(origin = {-70.00000000000001, -33.0}, 
+      points = {{-9.999999999999986, 5.0}, {10.000000000000014, -5.0}}, 
+      color = {255, 0, 0}, 
+      thickness = 3.0)}));
   Modelica.Blocks.Interfaces.RealInput Px "Position in x  axis w.r.t base frame" 
-    annotation (Placement(transformation(origin = {-140.0, 84.0}, 
+    annotation (Placement(transformation(origin = {-92.0, 52.0}, 
       extent = {{-10.0, -10.0}, {10.0, 10.0}})));
-  Modelica.Blocks.Interfaces.RealInput Py "Position in y  axis w.r.t base frame,should be zero" 
-    annotation (Placement(transformation(origin = {-140.0, 56.0}, 
-      extent = {{-10.0, -10.0}, {10.0, 10.0}})));
+
+
+
   Modelica.Blocks.Interfaces.RealInput Pz "Position in z  axis w.r.t base frame" 
-    annotation (Placement(transformation(origin = {-140.0, 32.0}, 
-      extent = {{-10.0, -10.0}, {10.0, 10.0}})));
-  Modelica.Blocks.Interfaces.RealInput Rx "rotation around x axis, should be pi/2" 
-    annotation (Placement(transformation(origin = {-140.0, -20.0}, 
-      extent = {{-10.0, -10.0}, {10.0, 10.0}})));
-  Modelica.Blocks.Interfaces.RealInput Ry "rotation around y axis, should be 0" 
-    annotation (Placement(transformation(origin = {-140.0, -50.0}, 
+    annotation (Placement(transformation(origin = {-92.0, 6.0}, 
       extent = {{-10.0, -10.0}, {10.0, 10.0}})));
   Modelica.Blocks.Interfaces.RealInput Rz "rotation around z axis, can vary" 
-    annotation (Placement(transformation(origin = {-140.0, -80.0}, 
+    annotation (Placement(transformation(origin = {-94.0, -58.0}, 
       extent = {{-10.0, -10.0}, {10.0, 10.0}})));
   Modelica.Blocks.Interfaces.RealOutput q1 "Joint 1 angle" 
     annotation (Placement(transformation(origin = {140.0, 60.0}, 
