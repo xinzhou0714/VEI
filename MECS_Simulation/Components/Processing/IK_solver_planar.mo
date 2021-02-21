@@ -70,12 +70,12 @@ model IK_solver_planar
     annotation (Placement(transformation(origin = {-94.0, -58.0}, 
       extent = {{-10.0, -10.0}, {10.0, 10.0}})));
   Modelica.Blocks.Interfaces.RealOutput q1 "Joint 1 angle" 
-    annotation (Placement(transformation(origin = {140.0, 60.0}, 
+    annotation (Placement(transformation(origin = {98.0, 52.0}, 
       extent = {{-10.0, -10.0}, {10.0, 10.0}})));
   Modelica.Blocks.Interfaces.RealOutput q2 "Joint 2 angle" 
-    annotation (Placement(transformation(origin = {142.0, 12.0}, 
+    annotation (Placement(transformation(origin = {98.0, 8.0}, 
       extent = {{-10.0, -10.0}, {10.0, 10.0}})));
   Modelica.Blocks.Interfaces.RealOutput q3 "Joint 3 angle" 
-    annotation (Placement(transformation(origin = {142.0, -52.0}, 
+    annotation (Placement(transformation(origin = {98.0, -44.0}, 
       extent = {{-10.0, -10.0}, {10.0, 10.0}})));
 end IK_solver_planar;
