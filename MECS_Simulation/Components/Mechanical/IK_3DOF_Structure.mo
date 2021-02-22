@@ -8,24 +8,24 @@ model IK_3DOF_Structure
       grid = {2.0, 2.0}), graphics = {Bitmap(origin = {-4.0, 19.0}, 
       extent = {{-180.0, -165.0}, {180.0, 165.0}}, 
       fileName = "modelica://MECS_Simulation/Resources/Images/IK_3DOF_Structure.png")}));
-  inner Modelica.Mechanics.MultiBody.World world(label2 = "z", gravityType = Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity, n = {0, 0, -1})
-    annotation (Placement(transformation(origin = {113.99999999999999, -114.00000000000003}, 
+  inner Modelica.Mechanics.MultiBody.World world(label2 = "z", gravityType = Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity, n = {0, 0, -1}, 
+    animateGravity = false)annotation (Placement(transformation(origin = {113.99999999999999, -114.00000000000003}, 
       extent = {{22.0, -22.0}, {-22.0, 22.0}})));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r = {0, 0, 0.5})
+  Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r = {0, 0, 1})
     annotation (Placement(transformation(origin = {28.0, -114.0}, 
       extent = {{20.0, -20.0}, {-20.0, 20.0}})));
   Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame
     annotation (Placement(transformation(origin = {114.0, -46.0}, 
       extent = {{-20.0, -20.0}, {20.0, 20.0}})));
-  Joint_rotational joint_rotational
+  Joint_rotational joint_rotational(frameRotation(rotationType = Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence, angles = {90, 0, 0}), body(r = {1, 0, 0}))
     annotation (Placement(transformation(origin = {-98.0, -60.0}, 
       extent = {{-36.0, -38.0}, {36.0, 38.0}}, 
       rotation = 90.0)));
-  Joint_rotational joint_rotational1
+  Joint_rotational joint_rotational1(frameRotation(rotationType = Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence))
     annotation (Placement(transformation(origin = {-98.00000000000001, 40.0}, 
       extent = {{-36.0, -38.0}, {36.0, 38.0}}, 
       rotation = 90.0)));
-  Joint_rotational joint_rotational2
+  Joint_rotational joint_rotational2(frameRotation(rotationType = Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence), body(r = {1, 0, 0}))
     annotation (Placement(transformation(origin = {-96.0, 138.0}, 
       extent = {{-36.0, -38.0}, {36.0, 38.0}}, 
       rotation = 90.0)));
