@@ -29,6 +29,15 @@ model IK_3DOF_Structure
     annotation (Placement(transformation(origin = {-96.0, 138.0}, 
       extent = {{-36.0, -38.0}, {36.0, 38.0}}, 
       rotation = 90.0)));
+  Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
+    annotation (Placement(transformation(origin = {-82.0, 78.0}, 
+      extent = {{-10.0, -10.0}, {10.0, 10.0}})));
+  Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a1
+    annotation (Placement(transformation(origin = {106.0, -10.0}, 
+      extent = {{-10.0, -10.0}, {10.0, 10.0}})));
+  Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a2
+    annotation (Placement(transformation(origin = {-2.0, 128.0}, 
+      extent = {{-10.0, -10.0}, {10.0, 10.0}})));
 equation 
   connect(fixedTranslation.frame_a, world.frame_b)
     annotation (Line(origin = {66.0, -117.0}, 
@@ -55,4 +64,13 @@ equation
       points = {{1.0, -13.0}, {-2.0, -13.0}, {-2.0, -11.0}, {2.0, -11.0}, {2.0, 13.0}}, 
       color = {95, 95, 95}, 
       thickness = 0.5));
+  connect(joint_rotational.flange_a, flange_a)
+    annotation (Line(origin = {-110.0, 9.0}, 
+      points = {{-18.0, -69.0}, {-28.0, -69.0}, {-28.0, -31.0}, {28.0, -31.0}, {28.0, 69.0}}));
+  connect(joint_rotational1.flange_a, flange_a2)
+    annotation (Line(origin = {-70.0, 84.0}, 
+      points = {{-58.0, -44.0}, {-58.0, -34.0}, {-68.0, -34.0}, {-68.0, -6.0}, {68.0, -6.0}, {68.0, 44.0}}));
+  connect(joint_rotational2.flange_a, flange_a1)
+    annotation (Line(origin = {-15.0, 65.0}, 
+      points = {{-111.0, 73.0}, {-111.0, 75.0}, {-121.0, 75.0}, {-121.0, 35.0}, {121.0, 35.0}, {121.0, -75.0}}));
 end IK_3DOF_Structure;
