@@ -60,7 +60,7 @@ model Joint_rotational
     color_z = {0, 0, 255}, 
     showLabels = true, 
     length = 0.2, 
-    animation = jointFrameOfReference)
+    animation = true)
     annotation (Placement(transformation(extent = {{46, -50}, {
       66, -30}}, rotation = 0)));
   Modelica.Mechanics.MultiBody.Joints.Revolute joint(animation = 
