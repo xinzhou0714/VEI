@@ -73,7 +73,7 @@ model Joint_rotational
     annotation (Placement(transformation(extent = {{-60, -10}, {-40, 10}}, 
       rotation = 0)));
   Modelica.Mechanics.MultiBody.Parts.BodyShape body(animateSphere = false, 
-    animation = bodyAnimation)
+    animation = true)
     annotation (Placement(transformation(extent = {{40, -10}, {60, 10}}, 
       rotation = 0)));
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
