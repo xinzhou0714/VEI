@@ -41,7 +41,7 @@ model IK_2Link
   Modelica.Blocks.Math.UnitConversions.To_deg to_deg2
     annotation (Placement(transformation(origin = {112.0, 90.0}, 
       extent = {{-10.0, -10.0}, {10.0, 10.0}})));
-  Components.Mechanical.IK_3DOF_Structure iK_3DOF_Structure
+  Components.Mechanical.IK_3DOF_Structure iK_3DOF_Structure(H = H, L1 = L1, L2 = L2)
     annotation (Placement(transformation(origin = {108.0, -34.0}, 
       extent = {{-20.0, -20.0}, {20.0, 20.0}})));
   Modelica.Mechanics.Rotational.Sources.Position position
