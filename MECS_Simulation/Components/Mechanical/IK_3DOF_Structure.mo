@@ -13,7 +13,7 @@ model IK_3DOF_Structure
   parameter Modelica.SIunits.Length H = 1 "Height offset of Joint 1 " annotation (Dialog(group = "Gemetry"));
   parameter Modelica.SIunits.Length L1 = 1 "Length of  Link 1 " annotation (Dialog(group = "Gemetry"));
   parameter Modelica.SIunits.Length L2(displayUnit = "m") = 1 "Length of  Link 2" annotation (Dialog(group = "Gemetry"));
-  final parameter Real A1 = 90 / 2 "rotation around x axis" annotation (Dialog(group = "Tranformation"));
+  final parameter Real A1 = 90 "rotation around x axis" annotation (Dialog(group = "Tranformation"));
 
 
   inner Modelica.Mechanics.MultiBody.World world(label2 = "z", gravityType = Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity, n = {0, 0, -1}, 
