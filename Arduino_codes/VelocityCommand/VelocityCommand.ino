@@ -25,12 +25,35 @@ private:
 
 };
 
+SW_Encoder knob0(2, 5, 7, 0);
+
 void setup() {
   // put your setup code here, to run once:
-
+    Serial.begin(9600);
+    Serial.println("oneKnobs Encoder Test:");
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+    knob0.setPositionNew(knob0.read());     // scan input of encoder
+    if (knob0.getPositionCache() != knob0.getPositionNew()) {
+        Serial.print("knob0 = ");
+        Serial.println(knob0.getPositionNew());
+        knob0.setPositionCache(knob0.getPositionNew());
+    }
 
+    ScanButton();
+
+}
+
+
+void ScanButton() {
+    if (!digitalRead(knob0.pinSW) && knob0.counterSW < 1) {
+        knob0.write(0);
+        Serial.print("knob");
+        Serial.print(knob0.id);
+        Serial.println(" has reset to zero");
+        knob0.counterSW++;
+    }
+    if (digitalRead(knob0.pinSW))knob0.counterSW = 0;
 }
