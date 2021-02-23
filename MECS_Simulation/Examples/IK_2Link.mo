@@ -18,7 +18,7 @@ model IK_2Link
     experiment(StartTime = 0, StopTime = 8, NumberOfIntervals = 500, Algorithm = "Dassl", Tolerance = 0.0001, DoublePrecision = true, StoreEventValue = true));
   extends Modelica.Icons.Example;
   Modelica.Blocks.Sources.TimeTable timeTable_X(table = {{0, 2}, {5, 1}, {6, 1}})
-    annotation (Placement(transformation(origin = {-110.0, 62.0}, 
+    annotation (Placement(transformation(origin = {-112.0, 62.0}, 
       extent = {{-10.0, -10.0}, {10.0, 10.0}})));
   Modelica.Blocks.Sources.TimeTable timeTable_Z(table = {{0, 1}, {5, 2.5}, {6, 2.5}})
     annotation (Placement(transformation(origin = {-108.0, 22.0}, 
@@ -60,7 +60,7 @@ equation
       color = {0, 0, 127}));
   connect(timeTable_X.y, iK_solver_planar.Px)
     annotation (Line(origin = {-69.0, 51.0}, 
-      points = {{-30.0, 11.0}, {29.0, 11.0}, {29.0, -12.0}}, 
+      points = {{-32.0, 11.0}, {29.0, 11.0}, {29.0, -12.0}}, 
       color = {0, 0, 127}));
   connect(timeTable_Z.y, iK_solver_planar.Pz)
     annotation (Line(origin = {-69.0, 18.0}, 
