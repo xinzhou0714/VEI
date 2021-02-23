@@ -20,7 +20,7 @@ model IK_2Link
   Modelica.Blocks.Sources.TimeTable timeTable_X(table = {{0, 2}, {5, 1}, {6, 1}})
     annotation (Placement(transformation(origin = {-110.0, 62.0}, 
       extent = {{-10.0, -10.0}, {10.0, 10.0}})));
-  Modelica.Blocks.Sources.TimeTable timeTable_Z(table = {{0, 1}, {5, 2}, {6, 2}})
+  Modelica.Blocks.Sources.TimeTable timeTable_Z(table = {{0, 1}, {5, 2.5}, {6, 2.5}})
     annotation (Placement(transformation(origin = {-108.0, 22.0}, 
       extent = {{-10.0, -10.0}, {10.0, 10.0}})));
   Modelica.Blocks.Sources.TimeTable timeTable_Gamma(table = {{0, 0}, {5, 30}, {6, 30}})
