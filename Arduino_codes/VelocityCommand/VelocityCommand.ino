@@ -41,7 +41,7 @@ void loop() {
         Serial.println(knob0.getPositionNew());
         knob0.setPositionCache(knob0.getPositionNew());
     }
-
+    delayMicroseconds(10);
     ScanButton();
 
 }
