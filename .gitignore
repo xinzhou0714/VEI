@@ -533,3 +533,4 @@ boards.local.txt
 .vs/
 __vm/
 *.vcxproj*
+*__vm/*
