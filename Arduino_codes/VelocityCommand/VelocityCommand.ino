@@ -36,7 +36,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
     knob0.setPositionNew(knob0.read());     // scan input of encoder
-    if (knob0.getPositionCache() != knob0.getPositionNew()) {
+    if (EncoderPositionChanged()) {
         Serial.print("knob0 = ");
         Serial.println(knob0.getPositionNew());
         knob0.setPositionCache(knob0.getPositionNew());
@@ -46,6 +46,10 @@ void loop() {
 
 }
 
+
+boolean EncoderPositionChanged() {
+    return  knob0.getPositionCache() != knob0.getPositionNew();
+}
 
 void ScanButton() {
     if (!digitalRead(knob0.pinSW) && knob0.counterSW < 1) {
