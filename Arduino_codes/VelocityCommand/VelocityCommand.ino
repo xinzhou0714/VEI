@@ -1,5 +1,8 @@
 
 #include <Encoder.h>
+
+#include <Ethernet.h>
+#include <EthernetUdp.h>
 // Entend Encoder class
 
 class SW_Encoder : public Encoder
@@ -26,6 +29,16 @@ private:
 };
 
 SW_Encoder knob0(2, 5, 7, 0);
+
+
+// UDP related
+
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+IPAddress subnet(255, 255, 255, 0);
+IPAddress ip(192, 168, 178, 100);
+IPAddress txIP(192, 168, 178, 22); // Recipient IP from IPCONFIG
+unsigned int rxPort = 24606;
+unsigned int txPort = 24545;
 
 void setup() {
   // put your setup code here, to run once:
