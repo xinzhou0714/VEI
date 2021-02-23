@@ -128,3 +128,7 @@ junit.xml
 .deps
 .dirstamp
 .libs
+
+
+### mworks
+*.mo-mw-bak
