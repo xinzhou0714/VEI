@@ -8,6 +8,14 @@ model IK_3DOF_Structure
       grid = {2.0, 2.0}), graphics = {Bitmap(origin = {-4.0, 19.0}, 
       extent = {{-180.0, -165.0}, {180.0, 165.0}}, 
       fileName = "modelica://MECS_Simulation/Resources/Images/IK_3DOF_Structure.png")}));
+
+    // Parameters
+  parameter Modelica.SIunits.Length H = 1 "Height offset of Joint 1 " annotation (Dialog(group = "Gemetry"));
+  parameter Modelica.SIunits.Length L1 = 1 "Length of  Link 1 " annotation (Dialog(group = "Gemetry"));
+  parameter Modelica.SIunits.Length L2(displayUnit = "m") = 1 "Length of  Link 2" annotation (Dialog(group = "Gemetry"));
+  final parameter Real A1 = 90 / 2 "rotation around x axis" annotation (Dialog(group = "Tranformation"));
+
+
   inner Modelica.Mechanics.MultiBody.World world(label2 = "z", gravityType = Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity, n = {0, 0, -1}, 
     animateGravity = false) annotation (Placement(transformation(origin = {113.99999999999999, -114.00000000000003}, 
       extent = {{22.0, -22.0}, {-22.0, 22.0}})));
