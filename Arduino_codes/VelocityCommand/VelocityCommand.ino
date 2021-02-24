@@ -61,10 +61,9 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-    knob0.setPositionNew(knob0.read());     // scan input of encoder
+    ScanEncoderInput();     // scan input of encoder
     if (EncoderPositionChanged()) {
-        Serial.print("knob0 = ");
-        Serial.println(knob0.getPositionNew());
+        Serial_DisplayEncoderStatus();
         UpdateEncoderPositionCache();
         SendingUDP();
         
@@ -76,12 +75,30 @@ void loop() {
 
 
 boolean EncoderPositionChanged() {
-    return  knob0.getPositionCache() != knob0.getPositionNew();
+    return  knob0.getPositionCache() != knob0.getPositionNew() || 
+        knob1.getPositionCache() != knob1.getPositionNew() || 
+        knob2.getPositionCache() != knob2.getPositionNew();
 }
 
 void UpdateEncoderPositionCache() {
     knob0.setPositionCache(knob0.getPositionNew());
+    knob1.setPositionCache(knob1.getPositionNew());
+    knob2.setPositionCache(knob2.getPositionNew());
 }
+
+
+void Serial_DisplayEncoderStatus() {
+    Serial.print("knob0 = ");
+    Serial.print(knob0.getPositionNew());
+    Serial.print(",");
+    Serial.print("knob1 = ");
+    Serial.print(knob1.getPositionNew());
+    Serial.print(",");
+    Serial.print("knob2 = ");
+    Serial.print(knob2.getPositionNew());
+    Serial.println();
+}
+
 
 void SendingUDP() {
     switch (Mode)
@@ -106,9 +123,11 @@ void SendingUDP() {
         Serial.print("Mode:");
         Serial.println(2);
         memcpy(txbuff, command2, sizeof(command2));
+        dat0 = knob1.getPositionNew();
+        dat1 = knob2.getPositionNew();
         dat2 = knob0.getPositionNew();
-        memcpy(txbuff + 4, &stuff, sizeof(long));
-        memcpy(txbuff + 8, &stuff, sizeof(long));
+        memcpy(txbuff + 4, &dat0, sizeof(long));
+        memcpy(txbuff + 8, &dat1, sizeof(long));
         memcpy(txbuff + 12, &dat2, sizeof(long));
         memcpy(txbuff + 16, &stuff, sizeof(long));
         memcpy(txbuff + 20, &stuff, sizeof(long));
@@ -124,6 +143,13 @@ void SendingUDP() {
 
     }
 }
+
+void ScanEncoderInput() {
+    knob0.setPositionNew(knob0.read());
+    knob1.setPositionNew(knob1.read());
+    knob2.setPositionNew(knob2.read());
+}
+
 void ScanButton() {
     if (!digitalRead(knob0.pinSW) && knob0.counterSW < 1) {
         knob0.write(0);
@@ -133,4 +159,22 @@ void ScanButton() {
         knob0.counterSW++;
     }
     if (digitalRead(knob0.pinSW))knob0.counterSW = 0;
+    if (!digitalRead(knob1.pinSW) && knob1.counterSW < 1) {
+        knob1.write(0);
+        Serial.print("knob");
+        Serial.print(knob1.id);
+        Serial.println(" has reset to zero");
+        knob1.counterSW++;
+    }
+    if (digitalRead(knob1.pinSW))knob1.counterSW = 0;
+
+    if (!digitalRead(knob2.pinSW) && knob2.counterSW < 1) {
+        knob2.write(0);
+        Serial.print("knob");
+        Serial.print(knob2.id);
+        Serial.println(" has reset to zero");
+        knob2.counterSW++;
+    }
+
+
 }
