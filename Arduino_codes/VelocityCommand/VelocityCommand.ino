@@ -29,7 +29,8 @@ private:
 };
 
 SW_Encoder knob0(2, 5, 7, 0);
-
+SW_Encoder knob1(3, 6, 8, 1);
+SW_Encoder knob2(18, 22, 26, 2);
 
 // UDP related
 
@@ -40,8 +41,20 @@ IPAddress txIP(192, 168, 178, 22); // Recipient IP from IPCONFIG
 unsigned int rxPort = 24606;
 unsigned int txPort = 24545;
 
+
+//global variable
+EthernetUDP Udp;
+byte txbuff[28];// 1
+long dat0, dat1, dat2, dat3, dat4, dat5;
+int Mode = 2;
+long stuff = 0xaabbccdd;
+byte command1[] = { 1,1,1,1 };    //joint angle mode  , data format :    dat0 , stuff ,stuff ,stuff ,stuff ,stuff ,
+byte command2[] = { 2,2,2,2 };    //inverse kinematic mode  , data format : dat0 ,dat1 ,dat2 ,stuff ,stuff ,stuff, 
 void setup() {
-  // put your setup code here, to run once:
+    //init UDP
+    Ethernet.begin(mac, ip, subnet);
+    Udp.begin(rxPort);
+    //for debugging
     Serial.begin(9600);
     Serial.println("oneKnobs Encoder Test:");
 }
@@ -52,7 +65,9 @@ void loop() {
     if (EncoderPositionChanged()) {
         Serial.print("knob0 = ");
         Serial.println(knob0.getPositionNew());
-        knob0.setPositionCache(knob0.getPositionNew());
+        UpdateEncoderPositionCache();
+        SendingUDP();
+        
     }
     delayMicroseconds(10);
     ScanButton();
@@ -64,6 +79,51 @@ boolean EncoderPositionChanged() {
     return  knob0.getPositionCache() != knob0.getPositionNew();
 }
 
+void UpdateEncoderPositionCache() {
+    knob0.setPositionCache(knob0.getPositionNew());
+}
+
+void SendingUDP() {
+    switch (Mode)
+    {
+    case 1: {
+        Serial.print("Mode:");
+        Serial.println(1);
+        memcpy(txbuff,  command1, sizeof(command1));
+        dat0 = knob0.getPositionNew();
+        memcpy(txbuff + 4, &dat0, sizeof(long));
+        memcpy(txbuff + 8, &stuff, sizeof(long));
+        memcpy(txbuff + 12, &stuff, sizeof(long));
+        memcpy(txbuff + 16, &stuff, sizeof(long));
+        memcpy(txbuff + 20, &stuff, sizeof(long));
+        memcpy(txbuff + 24, &stuff, sizeof(long));
+        Udp.beginPacket(txIP, txPort); // praparing package to send to certain IP and Port
+        Udp.write(txbuff, 28); // gathering data from buff and make one message to send
+        Udp.endPacket();
+        break;
+    }
+    case 2: {
+        Serial.print("Mode:");
+        Serial.println(2);
+        memcpy(txbuff, command2, sizeof(command2));
+        dat2 = knob0.getPositionNew();
+        memcpy(txbuff + 4, &stuff, sizeof(long));
+        memcpy(txbuff + 8, &stuff, sizeof(long));
+        memcpy(txbuff + 12, &dat2, sizeof(long));
+        memcpy(txbuff + 16, &stuff, sizeof(long));
+        memcpy(txbuff + 20, &stuff, sizeof(long));
+        memcpy(txbuff + 24, &stuff, sizeof(long));
+        Udp.beginPacket(txIP, txPort); // praparing package to send to certain IP and Port
+        Udp.write(txbuff, 28); // gathering data from buff and make one message to send
+        Udp.endPacket();
+        break;
+    }
+    default: {
+        break;
+    }
+
+    }
+}
 void ScanButton() {
     if (!digitalRead(knob0.pinSW) && knob0.counterSW < 1) {
         knob0.write(0);
