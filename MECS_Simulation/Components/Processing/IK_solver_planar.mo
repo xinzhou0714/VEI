@@ -3,11 +3,12 @@ model IK_solver_planar
   annotation (Diagram(coordinateSystem(extent = {{-140.0, -100.0}, {140.0, 100.0}}, 
     preserveAspectRatio = false, 
     grid = {2.0, 2.0})), 
+    
     Icon(coordinateSystem(extent = {{-100.0, -100.0}, {100.0, 100.0}}, 
       preserveAspectRatio = false, 
       grid = {2.0, 2.0}), graphics = {Rectangle(origin = {-69.0, -3.0}, 
       fillColor = {255, 255, 255}, 
-      lineThickness = 2.0, 
+      lineThickness = 1.0, 
       extent = {{-13.0, 67.0}, {13.0, -67.0}}), Text(origin = {-68.0, 50.0}, 
       extent = {{-12.0, 10.0}, {12.0, -10.0}}, 
       textString = "X", 
@@ -37,12 +38,12 @@ model IK_solver_planar
       textString = "q3", 
       textStyle = {TextStyle.None}), Rectangle(origin = {62.0, -3.0}, 
       fillColor = {255, 255, 255}, 
-      lineThickness = 2.0, 
+      lineThickness = 1.0, 
       extent = {{-14.0, 67.0}, {14.0, -67.0}}), Polygon(origin = {-1.0, -6.0}, 
       fillPattern = FillPattern.Solid, 
       points = {{-43.0, 12.0}, {-43.0, -12.0}, {17.0, -12.0}, {17.0, -34.0}, {43.0, 0.0}, {17.0, 34.0}, {17.0, 12.0}}), Rectangle(origin = {-2.0, -4.0}, 
       fillColor = {255, 255, 255}, 
-      lineThickness = 2.0, 
+      lineThickness = 1.0, 
       extent = {{-90.0, 74.0}, {90.0, -74.0}}), Text(origin = {1.8303030303030141, 84.16969696969696}, 
       extent = {{-58.169696969696965, 12.169696969696972}, {58.169696969696986, -12.169696969696957}}, 
       textString = "%name", 
@@ -55,8 +56,7 @@ model IK_solver_planar
       thickness = 3.0), Line(origin = {-70.00000000000001, -33.0}, 
       points = {{-9.999999999999986, 5.0}, {10.000000000000014, -5.0}}, 
       color = {255, 0, 0}, 
-      thickness = 3.0)}));
-  //  Imports
+      thickness = 3.0)}));//  Imports
 
 
 
