@@ -7,7 +7,7 @@ model Receiver
       grid = {2.0, 2.0}), graphics = {Bitmap(origin = {0.0, 0.0}, 
       extent = {{-200.0, -200.0}, {200.0, 200.0}}, 
       fileName = "modelica://MECS_Simulation/Resources/Images/receiver.png")}));
-  Modelica_DeviceDrivers.Blocks.Communication.UDPReceive uDPReceive
+  Modelica_DeviceDrivers.Blocks.Communication.UDPReceive uDPReceive(port_recv = 24545)
     annotation (Placement(transformation(origin = {-129.0, 167.0}, 
       extent = {{-25.0, -25.0}, {25.0, 25.0}}, 
       rotation = 270.0)));
