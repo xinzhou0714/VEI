@@ -3,7 +3,6 @@ model IK_solver_planar
   annotation (Diagram(coordinateSystem(extent = {{-140.0, -100.0}, {140.0, 100.0}}, 
     preserveAspectRatio = false, 
     grid = {2.0, 2.0})), 
-    
     Icon(coordinateSystem(extent = {{-100.0, -100.0}, {100.0, 100.0}}, 
       preserveAspectRatio = false, 
       grid = {2.0, 2.0}), graphics = {Rectangle(origin = {-69.0, -3.0}, 
