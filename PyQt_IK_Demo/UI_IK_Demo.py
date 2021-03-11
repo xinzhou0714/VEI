@@ -228,6 +228,9 @@ class Ui_MainWindow(object):
         self.label_32.setGeometry(QtCore.QRect(16, 22, 391, 91))
         self.label_32.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.label_32.setObjectName("label_32")
+        self.MplWidget = MplWidget(self.centralwidget)
+        self.MplWidget.setGeometry(QtCore.QRect(20, 190, 591, 431))
+        self.MplWidget.setObjectName("MplWidget")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1154, 21))
@@ -287,3 +290,4 @@ class Ui_MainWindow(object):
 "Line4\n"
 "Line5\n"
 "Line6"))
+from mplwidget import MplWidget
