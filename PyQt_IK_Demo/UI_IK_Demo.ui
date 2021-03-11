@@ -502,6 +502,16 @@ Line6</string>
      </property>
     </widget>
    </widget>
+   <widget class="MplWidget" name="MplWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>190</y>
+      <width>591</width>
+      <height>431</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -515,6 +525,14 @@ Line6</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MplWidget</class>
+   <extends>QWidget</extends>
+   <header>mplwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
