@@ -27,7 +27,41 @@ class Kinematics(object):
         print("del theta: %s" % self._theta)
         del self._theta
 
+    def trotx(self, alpha):
+        return np.array([
+        [1,            0,              0,      0],
+        [0, np.cos(alpha), -np.sin(alpha),      0],
+        [0, np.sin(alpha),  np.cos(alpha),      0],
+        [0,             0,           0,         1]
+        ])
+    
+    def troty(self, beta):
+        return np.array([
+        [ np.cos(beta),  0, np.sin(beta), 0],
+        [             0, 1,            0, 0],
+        [ -np.sin(beta), 0, np.cos(beta), 0],
+        [             0, 0,            0, 1]
+        ])
+
+    def trotz(self, gamma):
+        return np.array([
+        [np.cos(gamma), -np.sin(gamma), 0, 0],
+        [np.sin(gamma),  np.cos(gamma), 0, 0],
+        [            0,              0, 1, 0],
+        [            0,              0, 0, 1]
+        ])
+
+    def  transl(self, Px,Py,Pz):
+        return np.array([
+        [1, 0, 0, Px],
+        [0, 1, 0, Py],
+        [0, 0, 1, Pz],
+        [0, 0, 0,  1]
+        ])
+
 if __name__ == '__main__':
     kn=Kinematics()
     kn.theta=np.array([0,0,20,0,0,0,0,0],dtype=float)
+    print(kn.trotx(np.pi/2))
     
+
