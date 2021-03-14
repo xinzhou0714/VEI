@@ -82,13 +82,17 @@ class Kinematics(object):
         [            0,              0, 0, 1]
         ])
 
-    def  transl(self, Px,Py,Pz):
+    def  transl(self, px,py,pz):
         return np.array([
-        [1, 0, 0, Px],
-        [0, 1, 0, Py],
-        [0, 0, 1, Pz],
+        [1, 0, 0, px],
+        [0, 1, 0, py],
+        [0, 0, 1, pz],
         [0, 0, 0,  1]
         ])
+
+    def T_adjacenct(self,rx,ry,rz,px,py,pz,theta):
+        return self.transl(px,py,pz)@self.trotx(rx)@self.troty(ry)@self.trotz(rz)
+
 
 if __name__ == '__main__':
     kn=Kinematics()
