@@ -128,8 +128,8 @@ class Kinematics(object):
 
 if __name__ == '__main__':
     kn=Kinematics()
-    kn.Theta=np.array([0,np.radians(54),0,0,0,0,0,0],dtype=float)
+    kn.Theta=np.array([0,np.radians(37),np.radians(60),0,0,0,0,0],dtype=float)
     T01,T02,T03,T04,T05,T06,T07,T08=kn.GetTransformMatrices()
-    print(T08)
+    print(T06)
     
 
