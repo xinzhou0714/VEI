@@ -1,10 +1,19 @@
 import numpy as np
-
+from numpy import  cos
+from numpy import sin
 
 
 class Kinematics(object):
     def __init__(self):
         self._Theta=np.zeros(8)
+        self._q1=self._Theta[0]
+        self._q2=self._Theta[1]
+        self._q3=self._Theta[2]
+        self._q4=self._Theta[3]
+        self._q5=self._Theta[4]
+        self._q6=self._Theta[5]
+        self._q7=self._Theta[6]
+        self._q8=self._Theta[7]
         self._Rx=np.radians(np.array([0,   0,  90,   0,   0,   0,   0,   0]))
         self._Ry=np.radians(np.array([0,   0,   0,   0,   0, -90,  90,   0]))
         self._Rz=np.radians(np.array([0,   0,   0,   0,   0,   0,   0,   0]))
@@ -25,8 +34,8 @@ class Kinematics(object):
             raise ValueError(" Theta must be array with length 8")
         if value[0]!=0 or  value[-1]!=0 :
             raise ValueError(" the  angle of first and  last joint must be  zero   ")
-        print("set Theta,old value is: %s" % self._Theta)
-        print("set Theta,new value is: %s" % value)
+        print("set Theta,old value is: %s ,(in radian )" % self._Theta)
+        print("set Theta,new value is: %s ,(in radian )" % value)
         self._Theta=value
 
     @Theta.deleter
@@ -57,6 +66,97 @@ class Kinematics(object):
     @property
     def Pz(self):
         return self._Pz
+    
+    @property
+    def q1(self):
+        return self._Theta[0]
+    
+    @q1.setter
+    def q1(self,value):
+        print("q1 changed to : %s degrees , %s  radians " % (value ,np.radians(value)))
+        copy=np.copy(self._Theta)
+        copy[0]=np.radians(value) 
+        self.Theta=copy
+
+    @property
+    def q2(self):
+        return self._Theta[1]
+    
+    @q2.setter	
+    def q2(self,value):
+        print("q2 changed to : %s degrees , %s  radians " % (value ,np.radians(value)))
+        copy=np.copy(self._Theta)
+        copy[1]=np.radians(value)   
+        self.Theta=copy
+
+    @property
+    def q3(self):
+        return self._Theta[2]
+
+    @q3.setter
+    def q3(self,value):
+        print("q3 changed to : %s degrees , %s  radians " % (value ,np.radians(value)))
+        copy=np.copy(self._Theta)
+        copy[2]=np.radians(value)
+        self.Theta=copy
+
+    @property
+    def q4(self):
+        return self._Theta[3]
+
+    @q4.setter
+    def q4(self,value):
+        print("q4 changed to : %s degrees , %s  radians " % (value ,np.radians(value)))
+        copy=np.copy(self._Theta)
+        copy[3]=np.radians(value)
+        self.Theta=copy
+    
+    @property
+    def q5(self):
+        return self._Theta[4]
+    
+    @q5.setter
+    def q5(self,value):
+        print("q5 changed to : %s degrees , %s  radians " % (value ,np.radians(value)))
+        copy=np.copy(self._Theta)
+        copy[4]=np.radians(value)
+        self.Theta=copy
+    
+    @property
+    def q6(self):
+        return self._Theta[5]
+    
+    @q6.setter
+    def q6(self,value):
+        print("q6 changed to : %s degrees , %s  radians " % (value ,np.radians(value)))
+        copy=np.copy(self._Theta)
+        copy[5]=np.radians(value)
+        self.Theta=copy
+
+    @property
+    def q7(self):
+        return self._Theta[6]
+    
+    @q7.setter
+    def q7(self,value):
+        print("q7 changed to : %s degrees , %s  radians " % (value ,np.radians(value)))
+        copy=np.copy(self._Theta)
+        copy[6]=np.radians(value)
+        self.Theta=copy
+
+    @property
+    def q8(self):
+        return self._Theta[7]
+    
+    @q8.setter
+    def q8(self,value):
+        print("q8 changed to : %s degrees , %s  radians " % (value ,np.radians(value)))
+        copy=np.copy(self._Theta)
+        copy[7]=np.radians(value)
+        self.Theta=copy
+
+
+
 
     def trotx(self, alpha):
         return np.array([
@@ -128,8 +228,17 @@ class Kinematics(object):
 
 if __name__ == '__main__':
     kn=Kinematics()
-    kn.Theta=np.array([0,np.radians(37),np.radians(60),0,0,0,0,0],dtype=float)
-    T01,T02,T03,T04,T05,T06,T07,T08=kn.GetTransformMatrices()
-    print(T06)
+    #kn.Theta=np.array([0,np.radians(37),np.radians(60),0,0,0,0,0],dtype=float)
+    #T01,T02,T03,T04,T05,T06,T07,T08=kn.GetTransformMatrices()
+    #print(T06)
+    kn.q1=0
+    kn.q2=20
+    kn.q3=30
+    kn.q4=40
+    kn.q5=50
+    kn.q6=60
+    kn.q7=70
+    kn.q8=0
+    
     
 
