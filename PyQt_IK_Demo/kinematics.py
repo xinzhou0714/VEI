@@ -93,6 +93,33 @@ class Kinematics(object):
     def T_adjacenct(self,rx,ry,rz,px,py,pz,theta):
         return self.transl(px,py,pz)@self.trotx(rx)@self.troty(ry)@self.trotz(rz+theta)
 
+    def GetTransformMatrices(self):
+        theta1,theta2,theta3,theta4,theta5,theta6,theta7,theta8=self.Theta
+        rx1,rx2,rx3,rx4,rx5,rx6,rx7,rx8=self.Rx
+        ry1,ry2,ry3,ry4,ry5,ry6,ry7,ry8=self.Ry
+        rz1,rz2,rz3,rz4,rz5,rz6,rz7,rz8=self.Rz
+        px1,px2,px3,px4,px5,px6,px7,px8=self.Px
+        py1,py2,py3,py4,py5,py6,py7,py8=self.Py
+        pz1,pz2,pz3,pz4,pz5,pz6,pz7,pz8=self.Pz
+        T01=self.T_adjacenct(rx1,ry1,rz1,px1,py1,pz1,theta1)
+        T12=self.T_adjacenct(rx2,ry2,rz2,px2,py2,pz2,theta2)
+        T23=self.T_adjacenct(rx3,ry3,rz3,px3,py3,pz3,theta3)
+        T34=self.T_adjacenct(rx4,ry4,rz4,px4,py4,pz4,theta4)
+        T45=self.T_adjacenct(rx5,ry5,rz5,px5,py5,pz5,theta5)
+        T56=self.T_adjacenct(rx6,ry6,rz6,px6,py6,pz6,theta6)
+        T67=self.T_adjacenct(rx7,ry7,rz7,px7,py7,pz7,theta7)
+        T78=self.T_adjacenct(rx8,ry8,rz8,px8,py8,pz8,theta8)
+
+        T02=T01@T12
+        T03=T01@T12@T23
+        T04=T01@T12@T23@T34
+        T05=T01@T12@T23@T34@T45
+        T06=T01@T12@T23@T34@T45@T56
+        T07=T01@T12@T23@T34@T45@T56@T67
+        T08=T01@T12@T23@T34@T45@T56@T67@T78
+        return T01,T02,T03,T04,T05,T06,T07,T08
+
+
 
 
 
@@ -101,7 +128,8 @@ class Kinematics(object):
 
 if __name__ == '__main__':
     kn=Kinematics()
-    kn.Theta=np.array([0,0,20,0,0,0,0,0],dtype=float)
-    print(kn.trotx(np.pi/2))
+    kn.Theta=np.array([0,np.radians(54),0,0,0,0,0,0],dtype=float)
+    T01,T02,T03,T04,T05,T06,T07,T08=kn.GetTransformMatrices()
+    print(T08)
     
 
