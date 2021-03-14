@@ -5,6 +5,13 @@ import numpy as np
 class Kinematics(object):
     def __init__(self):
         self._theta=np.zeros(8)
+        self._Rx=np.radians(np.array([0,   0,  90,   0,   0,   0,   0,   0]))
+        self._Ry=np.radians(np.array([0,   0,   0,   0,   0, -90,  90,   0]))
+        self._Rz=np.radians(np.array([0,   0,   0,   0,   0,   0,   0,   0]))
+        self._Px=np.array([0,   0,   0,-612.9,-571.6, -61.7, 61.7,    0])
+        self._Py=np.array([0,   0, -86,     0,     0,     0,    0,    0])
+        self._Pz=np.array([0,  38,  90, 21.89,     2,    54,   54, 30.5])
+
     
 
     @property
@@ -26,6 +33,30 @@ class Kinematics(object):
     def theta(self):
         print("del theta: %s" % self._theta)
         del self._theta
+
+    @property
+    def Rx(self):
+        return self._Rx
+
+    @property
+    def Ry(self):
+        return self._Ry
+
+    @property
+    def Rz(self):
+        return self._Rz
+
+    @property
+    def Px(self):
+        return self._Px
+    
+    @property
+    def Py(self):
+        return self._Py
+    
+    @property
+    def Pz(self):
+        return self._Pz
 
     def trotx(self, alpha):
         return np.array([
