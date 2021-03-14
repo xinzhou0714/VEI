@@ -4,7 +4,7 @@ import numpy as np
 
 class Kinematics(object):
     def __init__(self):
-        self._theta=np.zeros(8)
+        self._Theta=np.zeros(8)
         self._Rx=np.radians(np.array([0,   0,  90,   0,   0,   0,   0,   0]))
         self._Ry=np.radians(np.array([0,   0,   0,   0,   0, -90,  90,   0]))
         self._Rz=np.radians(np.array([0,   0,   0,   0,   0,   0,   0,   0]))
@@ -15,24 +15,24 @@ class Kinematics(object):
     
 
     @property
-    def theta(self):
-        print("get theta: %s" % self._theta)
-        return self._theta
+    def Theta(self):
+        print("get Theta: %s" % self._Theta)
+        return self._Theta
 
-    @theta.setter
-    def theta(self, value):
+    @Theta.setter
+    def Theta(self, value):
         if len(value)!=8:
-            raise ValueError(" theta must be array with length 8")
+            raise ValueError(" Theta must be array with length 8")
         if value[0]!=0 or  value[-1]!=0 :
             raise ValueError(" the  angle of first and  last joint must be  zero   ")
-        print("set theta,old value is: %s" % self._theta)
-        print("set theta,new value is: %s" % value)
-        self._theta=value
+        print("set Theta,old value is: %s" % self._Theta)
+        print("set Theta,new value is: %s" % value)
+        self._Theta=value
 
-    @theta.deleter
-    def theta(self):
-        print("del theta: %s" % self._theta)
-        del self._theta
+    @Theta.deleter
+    def Theta(self):
+        print("del Theta: %s" % self._Theta)
+        del self._Theta
 
     @property
     def Rx(self):
@@ -91,12 +91,17 @@ class Kinematics(object):
         ])
 
     def T_adjacenct(self,rx,ry,rz,px,py,pz,theta):
-        return self.transl(px,py,pz)@self.trotx(rx)@self.troty(ry)@self.trotz(rz)
+        return self.transl(px,py,pz)@self.trotx(rx)@self.troty(ry)@self.trotz(rz+theta)
+
+
+
+
+    
 
 
 if __name__ == '__main__':
     kn=Kinematics()
-    kn.theta=np.array([0,0,20,0,0,0,0,0],dtype=float)
+    kn.Theta=np.array([0,0,20,0,0,0,0,0],dtype=float)
     print(kn.trotx(np.pi/2))
     
 
