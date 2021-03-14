@@ -20,12 +20,12 @@ T67=transl(Px(7),Py(7),Pz(7))*trotx(Rx(7))*troty(Ry(7))*trotz(Rz(7)+q7);
 T78=transl(Px(8),Py(8),Pz(8))*trotx(Rx(8))*troty(Ry(8))*trotz(Rz(8)+q8);
 
 q1=0;
-q2=deg2rad(37);
-q3=deg2rad(60);
-q4=0;
-q5=0;
-q6=0;
-q7=0;
+%q2=deg2rad(37);
+%q3=deg2rad(60);
+%q4=0;
+%q5=0;
+%q6=0;
+%q7=0;
 q8=0;
 
 T02=T01*T12
@@ -36,7 +36,7 @@ T06=T01*T12*T23*T34*T45*T56
 T07=T01*T12*T23*T34*T45*T56*T67
 T08=T01*T12*T23*T34*T45*T56*T67*T78
 
-double(subs(T06)
+
 % fid = fopen('temp6.txt','w');
 % fprintf(fid,'%s',diff(T08(1,4),q6));
 % fclose(fid);
