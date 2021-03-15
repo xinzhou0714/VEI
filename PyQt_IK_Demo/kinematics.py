@@ -366,8 +366,12 @@ class Kinematics(object):
 
 
     def ComputerInverse(Target):
+        """
+        stop to develop, shoudl writing Report first
+        """
         #retriece current joint angles
         q_current=self._Theta
+        
 
     
     
