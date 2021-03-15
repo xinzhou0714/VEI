@@ -308,11 +308,26 @@ class Kinematics(object):
         J_37=0.
         # dz/dq8
         J_38=0.
-        return np.array([
+
+        # second half of Jacobian
+        omega01=self.T01[0:3,2].reshape([3,1])
+        omega02=self.T02[0:3,2].reshape([3,1])
+        omega03=self.T03[0:3,2].reshape([3,1])
+        omega04=self.T04[0:3,2].reshape([3,1])
+        omega05=self.T05[0:3,2].reshape([3,1])
+        omega06=self.T06[0:3,2].reshape([3,1])
+        omega07=self.T07[0:3,2].reshape([3,1])
+        omega08=self.T08[0:3,2].reshape([3,1])
+
+        J_second_half=np.hstack([omega01,omega02,omega03,omega04,omega05,omega06,omega07,omega08])
+
+
+        J_first_half=np.array([
             [J_11,J_12,J_13,J_14,J_15,J_16,J_17,J_18],
             [J_21,J_22,J_23,J_24,J_25,J_26,J_27,J_28],
             [J_31,J_32,J_33,J_34,J_35,J_36,J_37,J_38]
         ])
+        return np.vstack([J_first_half,J_second_half])
 
         
 
@@ -333,7 +348,9 @@ if __name__ == '__main__':
     kn.q1=0
     kn.q2=90
     kn.q3=30
-    print(kn.T08)
+    print(kn.Jacobian())
+    print(kn.Jacobian().shape)
+
 
     
     
