@@ -21,6 +21,7 @@ class Kinematics(object):
         self._Py=np.array([0,   0, -86,     0,     0,     0,    0,    0])
         self._Pz=np.array([0,  38,  90, 21.89,     2,    54,   54, 30.5])
 
+
     
 
     @property
@@ -219,66 +220,99 @@ class Kinematics(object):
         T08=T01@T12@T23@T34@T45@T56@T67@T78
         return T01,T02,T03,T04,T05,T06,T07,T08
 
-        def Jacobian(self):
-            # Matrix should be at least 3*8
+    @property
+    def T01(self):
+        return self.GetTransformMatrices()[0]
+    
+    @property
+    def T02(self):
+        return self.GetTransformMatrices()[1]
+    
+    @property
+    def T03(self):
+        return self.GetTransformMatrices()[2]
+    
+    @property
+    def T04(self):
+        return self.GetTransformMatrices()[3]
+    
+    @property
+    def T05(self):
+        return self.GetTransformMatrices()[4]
 
-            q1,q2,q3,q4,q5,q6,q7,q8=self.Theta
-            # all expression comes from matlab symbolic algebra
-            # dx/dq1
-            J_11=(16389*cos(q1 + q2))/100 + (2858*cos(q3 + q4)*sin(q1 + q2))/5 + (461*cos(q1 + q2)*cos(q6))/5 + sin(q6)*((461*cos(q3 + q4)*sin(q1 + q2)*sin(q5))/5 + (461*sin(q1 + q2)*sin(q3 + q4)*cos(q5))/5) + (6129*sin(q1 + q2)*cos(q3))/10 + (1157*cos(q3 + q4)*sin(q1 + q2)*cos(q5))/10 - (1157*sin(q1 + q2)*sin(q3 + q4)*sin(q5))/10    
-            # dx/dq2
-            J_12=(16389*cos(q1 + q2))/100 + (2858*cos(q3 + q4)*sin(q1 + q2))/5 + (461*cos(q1 + q2)*cos(q6))/5 + sin(q6)*((461*cos(q3 + q4)*sin(q1 + q2)*sin(q5))/5 + (461*sin(q1 + q2)*sin(q3 + q4)*cos(q5))/5) + (6129*sin(q1 + q2)*cos(q3))/10 + (1157*cos(q3 + q4)*sin(q1 + q2)*cos(q5))/10 - (1157*sin(q1 + q2)*sin(q3 + q4)*sin(q5))/10
-            # dx/dq3
-            J_13=(2858*cos(q1 + q2)*sin(q3 + q4))/5 - sin(q6)*((461*cos(q1 + q2)*cos(q3 + q4)*cos(q5))/5 - (461*cos(q1 + q2)*sin(q3 + q4)*sin(q5))/5) + (6129*cos(q1 + q2)*sin(q3))/10 + (1157*cos(q1 + q2)*cos(q3 + q4)*sin(q5))/10 + (1157*cos(q1 + q2)*sin(q3 + q4)*cos(q5))/10
-            # dx/dq4
-            J_14=(2858*cos(q1 + q2)*sin(q3 + q4))/5 - sin(q6)*((461*cos(q1 + q2)*cos(q3 + q4)*cos(q5))/5 - (461*cos(q1 + q2)*sin(q3 + q4)*sin(q5))/5) + (1157*cos(q1 + q2)*cos(q3 + q4)*sin(q5))/10 + (1157*cos(q1 + q2)*sin(q3 + q4)*cos(q5))/10
-            # dx/dq5
-            J_15=(1157*cos(q1 + q2)*cos(q3 + q4)*sin(q5))/10 - sin(q6)*((461*cos(q1 + q2)*cos(q3 + q4)*cos(q5))/5 - (461*cos(q1 + q2)*sin(q3 + q4)*sin(q5))/5) + (1157*cos(q1 + q2)*sin(q3 + q4)*cos(q5))/10
-            # dx/dq6
-            J_16=- cos(q6)*((461*cos(q1 + q2)*cos(q3 + q4)*sin(q5))/5 + (461*cos(q1 + q2)*sin(q3 + q4)*cos(q5))/5) - (461*sin(q1 + q2)*sin(q6))/5
-            # dx/dq7
-            J_17=0.
-            # dx/dq8
-            J_18=0.
+    @property
+    def T06(self):
+        return self.GetTransformMatrices()[5]
 
-            # dy/dq1
-            J_21=(16389*sin(q1 + q2))/100 - (2858*cos(q1 + q2)*cos(q3 + q4))/5 - sin(q6)*((461*cos(q1 + q2)*cos(q3 + q4)*sin(q5))/5 + (461*cos(q1 + q2)*sin(q3 + q4)*cos(q5))/5) - (6129*cos(q1 + q2)*cos(q3))/10 + (461*sin(q1 + q2)*cos(q6))/5 - (1157*cos(q1 + q2)*cos(q3 + q4)*cos(q5))/10 + (1157*cos(q1 + q2)*sin(q3 + q4)*sin(q5))/10
-            # dy/dq2
-            J_22=(16389*sin(q1 + q2))/100 - (2858*cos(q1 + q2)*cos(q3 + q4))/5 - sin(q6)*((461*cos(q1 + q2)*cos(q3 + q4)*sin(q5))/5 + (461*cos(q1 + q2)*sin(q3 + q4)*cos(q5))/5) - (6129*cos(q1 + q2)*cos(q3))/10 + (461*sin(q1 + q2)*cos(q6))/5 - (1157*cos(q1 + q2)*cos(q3 + q4)*cos(q5))/10 + (1157*cos(q1 + q2)*sin(q3 + q4)*sin(q5))/10
-            # dy/dq3
-            J_23=(2858*sin(q1 + q2)*sin(q3 + q4))/5 - sin(q6)*((461*cos(q3 + q4)*sin(q1 + q2)*cos(q5))/5 - (461*sin(q1 + q2)*sin(q3 + q4)*sin(q5))/5) + (6129*sin(q1 + q2)*sin(q3))/10 + (1157*cos(q3 + q4)*sin(q1 + q2)*sin(q5))/10 + (1157*sin(q1 + q2)*sin(q3 + q4)*cos(q5))/10
-            # dy/dq4
-            J_24=(2858*sin(q1 + q2)*sin(q3 + q4))/5 - sin(q6)*((461*cos(q3 + q4)*sin(q1 + q2)*cos(q5))/5 - (461*sin(q1 + q2)*sin(q3 + q4)*sin(q5))/5) + (1157*cos(q3 + q4)*sin(q1 + q2)*sin(q5))/10 + (1157*sin(q1 + q2)*sin(q3 + q4)*cos(q5))/10
-            # dy/dq5
-            J_25=(1157*cos(q3 + q4)*sin(q1 + q2)*sin(q5))/10 - sin(q6)*((461*cos(q3 + q4)*sin(q1 + q2)*cos(q5))/5 - (461*sin(q1 + q2)*sin(q3 + q4)*sin(q5))/5) + (1157*sin(q1 + q2)*sin(q3 + q4)*cos(q5))/10
-            # dy/dq6
-            J_26=(461*cos(q1 + q2)*sin(q6))/5 - cos(q6)*((461*cos(q3 + q4)*sin(q1 + q2)*sin(q5))/5 + (461*sin(q1 + q2)*sin(q3 + q4)*cos(q5))/5)
-            # dy/dq7
-            J_27=0.
-            # dy/dq8
-            J_28=0.
+    @property
+    def T07(self):
+        return self.GetTransformMatrices()[6]
 
-            # dz/dq1
-            J_31=0
-            # dz/dq2
-            J_32=0.
-            # dz/dq3
-            J_33=(1157*sin(q3 + q4)*sin(q5))/10 - (6129*cos(q3))/10 - sin(q6)*((461*cos(q3 + q4)*sin(q5))/5 + (461*sin(q3 + q4)*cos(q5))/5) - (1157*cos(q3 + q4)*cos(q5))/10 - (2858*cos(q3 + q4))/5
-            # dz/dq4
-            J_34=(1157*sin(q3 + q4)*sin(q5))/10 - sin(q6)*((461*cos(q3 + q4)*sin(q5))/5 + (461*sin(q3 + q4)*cos(q5))/5) - (1157*cos(q3 + q4)*cos(q5))/10 - (2858*cos(q3 + q4))/5
-            # dz/dq5
-            J_35=(1157*sin(q3 + q4)*sin(q5))/10 - (1157*cos(q3 + q4)*cos(q5))/10 - sin(q6)*((461*cos(q3 + q4)*sin(q5))/5 + (461*sin(q3 + q4)*cos(q5))/5)
-            # dz/dq6
-            J_36=cos(q6)*((461*cos(q3 + q4)*cos(q5))/5 - (461*sin(q3 + q4)*sin(q5))/5)
-            # dz/dq7
-            J_37=0.
-            # dz/dq8
-            J_38=0.
-            return np.array([
-                [J_11,J_12,J_13,J_14,J_15,J_16,J_17,J_18],
-                [J_21,J_22,J_23,J_24,J_25,J_26,J_27,J_28],
-                [J_31,J_32,J_33,J_34,J_35,J_36,J_37,J_38]
-            ])
+    @property
+    def T08(self):
+        return self.GetTransformMatrices()[7]
+
+
+    def Jacobian(self):
+        # Matrix should be at least 3*8
+
+        q1,q2,q3,q4,q5,q6,q7,q8=self.Theta
+        # all expression comes from matlab symbolic algebra
+        # dx/dq1
+        J_11=(16389*cos(q1 + q2))/100 + (2858*cos(q3 + q4)*sin(q1 + q2))/5 + (461*cos(q1 + q2)*cos(q6))/5 + sin(q6)*((461*cos(q3 + q4)*sin(q1 + q2)*sin(q5))/5 + (461*sin(q1 + q2)*sin(q3 + q4)*cos(q5))/5) + (6129*sin(q1 + q2)*cos(q3))/10 + (1157*cos(q3 + q4)*sin(q1 + q2)*cos(q5))/10 - (1157*sin(q1 + q2)*sin(q3 + q4)*sin(q5))/10    
+        # dx/dq2
+        J_12=(16389*cos(q1 + q2))/100 + (2858*cos(q3 + q4)*sin(q1 + q2))/5 + (461*cos(q1 + q2)*cos(q6))/5 + sin(q6)*((461*cos(q3 + q4)*sin(q1 + q2)*sin(q5))/5 + (461*sin(q1 + q2)*sin(q3 + q4)*cos(q5))/5) + (6129*sin(q1 + q2)*cos(q3))/10 + (1157*cos(q3 + q4)*sin(q1 + q2)*cos(q5))/10 - (1157*sin(q1 + q2)*sin(q3 + q4)*sin(q5))/10
+        # dx/dq3
+        J_13=(2858*cos(q1 + q2)*sin(q3 + q4))/5 - sin(q6)*((461*cos(q1 + q2)*cos(q3 + q4)*cos(q5))/5 - (461*cos(q1 + q2)*sin(q3 + q4)*sin(q5))/5) + (6129*cos(q1 + q2)*sin(q3))/10 + (1157*cos(q1 + q2)*cos(q3 + q4)*sin(q5))/10 + (1157*cos(q1 + q2)*sin(q3 + q4)*cos(q5))/10
+        # dx/dq4
+        J_14=(2858*cos(q1 + q2)*sin(q3 + q4))/5 - sin(q6)*((461*cos(q1 + q2)*cos(q3 + q4)*cos(q5))/5 - (461*cos(q1 + q2)*sin(q3 + q4)*sin(q5))/5) + (1157*cos(q1 + q2)*cos(q3 + q4)*sin(q5))/10 + (1157*cos(q1 + q2)*sin(q3 + q4)*cos(q5))/10
+        # dx/dq5
+        J_15=(1157*cos(q1 + q2)*cos(q3 + q4)*sin(q5))/10 - sin(q6)*((461*cos(q1 + q2)*cos(q3 + q4)*cos(q5))/5 - (461*cos(q1 + q2)*sin(q3 + q4)*sin(q5))/5) + (1157*cos(q1 + q2)*sin(q3 + q4)*cos(q5))/10
+        # dx/dq6
+        J_16=- cos(q6)*((461*cos(q1 + q2)*cos(q3 + q4)*sin(q5))/5 + (461*cos(q1 + q2)*sin(q3 + q4)*cos(q5))/5) - (461*sin(q1 + q2)*sin(q6))/5
+        # dx/dq7
+        J_17=0.
+        # dx/dq8
+        J_18=0.
+
+        # dy/dq1
+        J_21=(16389*sin(q1 + q2))/100 - (2858*cos(q1 + q2)*cos(q3 + q4))/5 - sin(q6)*((461*cos(q1 + q2)*cos(q3 + q4)*sin(q5))/5 + (461*cos(q1 + q2)*sin(q3 + q4)*cos(q5))/5) - (6129*cos(q1 + q2)*cos(q3))/10 + (461*sin(q1 + q2)*cos(q6))/5 - (1157*cos(q1 + q2)*cos(q3 + q4)*cos(q5))/10 + (1157*cos(q1 + q2)*sin(q3 + q4)*sin(q5))/10
+        # dy/dq2
+        J_22=(16389*sin(q1 + q2))/100 - (2858*cos(q1 + q2)*cos(q3 + q4))/5 - sin(q6)*((461*cos(q1 + q2)*cos(q3 + q4)*sin(q5))/5 + (461*cos(q1 + q2)*sin(q3 + q4)*cos(q5))/5) - (6129*cos(q1 + q2)*cos(q3))/10 + (461*sin(q1 + q2)*cos(q6))/5 - (1157*cos(q1 + q2)*cos(q3 + q4)*cos(q5))/10 + (1157*cos(q1 + q2)*sin(q3 + q4)*sin(q5))/10
+        # dy/dq3
+        J_23=(2858*sin(q1 + q2)*sin(q3 + q4))/5 - sin(q6)*((461*cos(q3 + q4)*sin(q1 + q2)*cos(q5))/5 - (461*sin(q1 + q2)*sin(q3 + q4)*sin(q5))/5) + (6129*sin(q1 + q2)*sin(q3))/10 + (1157*cos(q3 + q4)*sin(q1 + q2)*sin(q5))/10 + (1157*sin(q1 + q2)*sin(q3 + q4)*cos(q5))/10
+        # dy/dq4
+        J_24=(2858*sin(q1 + q2)*sin(q3 + q4))/5 - sin(q6)*((461*cos(q3 + q4)*sin(q1 + q2)*cos(q5))/5 - (461*sin(q1 + q2)*sin(q3 + q4)*sin(q5))/5) + (1157*cos(q3 + q4)*sin(q1 + q2)*sin(q5))/10 + (1157*sin(q1 + q2)*sin(q3 + q4)*cos(q5))/10
+        # dy/dq5
+        J_25=(1157*cos(q3 + q4)*sin(q1 + q2)*sin(q5))/10 - sin(q6)*((461*cos(q3 + q4)*sin(q1 + q2)*cos(q5))/5 - (461*sin(q1 + q2)*sin(q3 + q4)*sin(q5))/5) + (1157*sin(q1 + q2)*sin(q3 + q4)*cos(q5))/10
+        # dy/dq6
+        J_26=(461*cos(q1 + q2)*sin(q6))/5 - cos(q6)*((461*cos(q3 + q4)*sin(q1 + q2)*sin(q5))/5 + (461*sin(q1 + q2)*sin(q3 + q4)*cos(q5))/5)
+        # dy/dq7
+        J_27=0.
+        # dy/dq8
+        J_28=0.
+
+        # dz/dq1
+        J_31=0
+        # dz/dq2
+        J_32=0.
+        # dz/dq3
+        J_33=(1157*sin(q3 + q4)*sin(q5))/10 - (6129*cos(q3))/10 - sin(q6)*((461*cos(q3 + q4)*sin(q5))/5 + (461*sin(q3 + q4)*cos(q5))/5) - (1157*cos(q3 + q4)*cos(q5))/10 - (2858*cos(q3 + q4))/5
+        # dz/dq4
+        J_34=(1157*sin(q3 + q4)*sin(q5))/10 - sin(q6)*((461*cos(q3 + q4)*sin(q5))/5 + (461*sin(q3 + q4)*cos(q5))/5) - (1157*cos(q3 + q4)*cos(q5))/10 - (2858*cos(q3 + q4))/5
+        # dz/dq5
+        J_35=(1157*sin(q3 + q4)*sin(q5))/10 - (1157*cos(q3 + q4)*cos(q5))/10 - sin(q6)*((461*cos(q3 + q4)*sin(q5))/5 + (461*sin(q3 + q4)*cos(q5))/5)
+        # dz/dq6
+        J_36=cos(q6)*((461*cos(q3 + q4)*cos(q5))/5 - (461*sin(q3 + q4)*sin(q5))/5)
+        # dz/dq7
+        J_37=0.
+        # dz/dq8
+        J_38=0.
+        return np.array([
+            [J_11,J_12,J_13,J_14,J_15,J_16,J_17,J_18],
+            [J_21,J_22,J_23,J_24,J_25,J_26,J_27,J_28],
+            [J_31,J_32,J_33,J_34,J_35,J_36,J_37,J_38]
+        ])
 
         
 
@@ -297,13 +331,10 @@ if __name__ == '__main__':
     #T01,T02,T03,T04,T05,T06,T07,T08=kn.GetTransformMatrices()
     #print(T06)
     kn.q1=0
-    kn.q2=20
+    kn.q2=90
     kn.q3=30
-    kn.q4=40
-    kn.q5=50
-    kn.q6=60
-    kn.q7=70
-    kn.q8=0
+    print(kn.T08)
+
     
     
 
