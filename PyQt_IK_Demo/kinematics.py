@@ -195,7 +195,7 @@ class Kinematics(object):
         return self.transl(px,py,pz)@self.trotx(rx)@self.troty(ry)@self.trotz(rz+theta)
 
     def GetTransformMatrices(self):
-        theta1,theta2,theta3,theta4,theta5,theta6,theta7,theta8=self.Theta
+        theta1,theta2,theta3,theta4,theta5,theta6,theta7,theta8=self._Theta
         rx1,rx2,rx3,rx4,rx5,rx6,rx7,rx8=self.Rx
         ry1,ry2,ry3,ry4,ry5,ry6,ry7,ry8=self.Ry
         rz1,rz2,rz3,rz4,rz5,rz6,rz7,rz8=self.Rz
@@ -256,7 +256,7 @@ class Kinematics(object):
     def Jacobian(self):
         # Matrix should be at least 3*8
 
-        q1,q2,q3,q4,q5,q6,q7,q8=self.Theta
+        q1,q2,q3,q4,q5,q6,q7,q8=self._Theta
         # all expression comes from matlab symbolic algebra
         # dx/dq1
         J_11=(16389*cos(q1 + q2))/100 + (2858*cos(q3 + q4)*sin(q1 + q2))/5 + (461*cos(q1 + q2)*cos(q6))/5 + sin(q6)*((461*cos(q3 + q4)*sin(q1 + q2)*sin(q5))/5 + (461*sin(q1 + q2)*sin(q3 + q4)*cos(q5))/5) + (6129*sin(q1 + q2)*cos(q3))/10 + (1157*cos(q3 + q4)*sin(q1 + q2)*cos(q5))/10 - (1157*sin(q1 + q2)*sin(q3 + q4)*sin(q5))/10    
@@ -329,6 +329,49 @@ class Kinematics(object):
         ])
         return np.vstack([J_first_half,J_second_half])
 
+    def isRotationMatrix(self,R):
+        """
+        Checks if a matrix is a valid rotation matrix.
+        Link :    https://learnopencv.com/rotation-matrix-to-euler-angles/
+        """
+        Rt = np.transpose(R)
+        shouldBeIdentity = np.dot(Rt, R)
+        I = np.identity(3, dtype = R.dtype)
+        n = np.linalg.norm(I - shouldBeIdentity)
+        return n < 1e-6
+
+    def rotationMatrixToEulerAngles(self,R):
+        """
+        Calculates rotation matrix to euler angles,The result is the same as MATLAB except the order
+        of the euler angles ( x and z are swapped )
+        so  this implement is for XYZ order
+        """
+        assert(self.isRotationMatrix(R))
+
+        sy = math.sqrt(R[0,0] * R[0,0] +  R[1,0] * R[1,0])
+
+        singular = sy < 1e-6
+
+        if  not singular :
+            x = math.atan2(R[2,1] , R[2,2])
+            y = math.atan2(-R[2,0], sy)
+            z = math.atan2(R[1,0], R[0,0])
+        else :
+            x = math.atan2(-R[1,2], R[1,1])
+            y = math.atan2(-R[2,0], sy)
+            z = 0
+
+        return np.array([x, y, z])
+
+
+
+    def ComputerInverse(Target):
+        #retriece current joint angles
+        q_current=self._Theta
+
+    
+    
+
         
 
 
@@ -348,8 +391,9 @@ if __name__ == '__main__':
     kn.q1=0
     kn.q2=90
     kn.q3=30
-    print(kn.Jacobian())
-    print(kn.Jacobian().shape)
+    #print(kn.Jacobian())
+    #print(kn.Jacobian().shape)
+    print(kn.T08)
 
 
     
