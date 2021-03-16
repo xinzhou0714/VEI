@@ -24,36 +24,21 @@ model Receiver
   Modelica.Blocks.Interfaces.RealOutput data5 annotation (Placement(transformation(origin={210.0,-100.0}, extent={{-10.0,-10.0},{10.0,10.0}})));
   Modelica.Blocks.Interfaces.RealOutput data6 annotation (Placement(transformation(origin={210.0,-160.0}, extent={{-10.0,-10.0},{10.0,10.0}})));
 equation
-  connect(uDPReceive.pkgOut, Byte1.pkgIn) annotation (Line(origin={-129.0,140.0}, points={{0,0},{0,
-          -16.16}}));
-  connect(Byte1.pkgOut[1], Byte2.pkgIn) annotation (Line(origin={-129.0,67.0}, points={{0,7.16},
-          {0,-7.16}}));
-  connect(Byte2.pkgOut[1], Byte3.pkgIn) annotation (Line(origin={-129.0,5.0}, points={{0,5.16},
-          {0,-5.16}}));
-  connect(Byte3.pkgOut[1], Byte4.pkgIn) annotation (Line(origin={-129.0,-56.0}, points={{0,6.16},
-          {0,-6.16}}));
-  connect(Byte4.pkgOut[1], getInteger.pkgIn) annotation (Line(origin={-129.0,-118.0}, points={{0,6.16},
-          {0,-10.24},{-1,-10.24}}));
-  connect(Byte1.y, Command1) annotation (Line(origin={-80.0,155.0}, points={{-23.7,
-          -56},{24,-56},{24,55}},                                                                                    color={255,127,0}));
-  connect(Byte2.y, Command2) annotation (Line(origin={-60.0,123.0}, points={{-43.7,
-          -88},{44,-88},{44,87}},                                                                                    color={255,127,0}));
-  connect(Byte3.y, Command3) annotation (Line(origin={-39.0,93.0}, points={{-64.7,
-          -118},{65,-118},{65,117}},                                                                                   color={255,127,0}));
-  connect(Byte4.y, Command4) annotation (Line(origin={-17.0,62.0}, points={{-86.7,
-          -149},{67,-149},{67,138},{87,138},{87,148}},                                                                                           color={255,127,0}));
-  connect(getInteger.y[6], integerToReal5.u) annotation (Line(origin={1.0,-158.0}, points={{-106.8,
-          7.83333},{107,7.83333},{107,-6}},                                                                                        color={255,127,0}));
-  connect(getInteger.y[1], integerToReal.u) annotation (Line(origin={1.0,-1.0}, points={{-106.8,
-          -152.833},{59,-152.833},{59,151},{107,151}},                                                                                             color={255,127,0}));
-  connect(getInteger.y[2], integerToReal1.u) annotation (Line(origin={1.0,-31.0}, points={{-106.8,
-          -122.1},{59,-122.1},{59,121},{107,121}},                                                                                                   color={255,127,0}));
-  connect(getInteger.y[3], integerToReal2.u) annotation (Line(origin={1.0,-62.0}, points={{-106.8,
-          -90.3667},{57,-90.3667},{57,90},{107,90}},                                                                                             color={255,127,0}));
-  connect(getInteger.y[4], integerToReal3.u) annotation (Line(origin={1.0,-93.0}, points={{-106.8,
-          -58.6333},{57,-58.6333},{57,59},{107,59}},                                                                                             color={255,127,0}));
-  connect(getInteger.y[5], integerToReal4.u) annotation (Line(origin={1.0,-128.0}, points={{-106.8,
-          -22.9},{61,-22.9},{61,24},{107,24}},                                                                                                    color={255,127,0}));
+  connect(uDPReceive.pkgOut, Byte1.pkgIn) annotation (Line(origin={-129.0,140.0}, points={{0,0},{0,-16.16}}));
+  connect(Byte1.pkgOut[1], Byte2.pkgIn) annotation (Line(origin={-129.0,67.0}, points={{0,7.16},{0,-7.16}}));
+  connect(Byte2.pkgOut[1], Byte3.pkgIn) annotation (Line(origin={-129.0,5.0}, points={{0,5.16},{0,-5.16}}));
+  connect(Byte3.pkgOut[1], Byte4.pkgIn) annotation (Line(origin={-129.0,-56.0}, points={{0,6.16},{0,-6.16}}));
+  connect(Byte4.pkgOut[1], getInteger.pkgIn) annotation (Line(origin={-129.0,-118.0}, points={{0,6.16},{0,-10.24},{-1,-10.24}}));
+  connect(Byte1.y, Command1) annotation (Line(origin={-80.0,155.0}, points={{-23.7,-56},{24,-56},{24,55}}, color={255,127,0}));
+  connect(Byte2.y, Command2) annotation (Line(origin={-60.0,123.0}, points={{-43.7,-88},{44,-88},{44,87}}, color={255,127,0}));
+  connect(Byte3.y, Command3) annotation (Line(origin={-39.0,93.0}, points={{-64.7,-118},{65,-118},{65,117}}, color={255,127,0}));
+  connect(Byte4.y, Command4) annotation (Line(origin={-17.0,62.0}, points={{-86.7,-149},{67,-149},{67,138},{87,138},{87,148}}, color={255,127,0}));
+  connect(getInteger.y[6], integerToReal5.u) annotation (Line(origin={1.0,-158.0}, points={{-106.8,7.83333},{107,7.83333},{107,-6}}, color={255,127,0}));
+  connect(getInteger.y[1], integerToReal.u) annotation (Line(origin={1.0,-1.0}, points={{-106.8,-152.833},{59,-152.833},{59,151},{107,151}}, color={255,127,0}));
+  connect(getInteger.y[2], integerToReal1.u) annotation (Line(origin={1.0,-31.0}, points={{-106.8,-122.1},{59,-122.1},{59,121},{107,121}}, color={255,127,0}));
+  connect(getInteger.y[3], integerToReal2.u) annotation (Line(origin={1.0,-62.0}, points={{-106.8,-90.3667},{57,-90.3667},{57,90},{107,90}}, color={255,127,0}));
+  connect(getInteger.y[4], integerToReal3.u) annotation (Line(origin={1.0,-93.0}, points={{-106.8,-58.6333},{57,-58.6333},{57,59},{107,59}}, color={255,127,0}));
+  connect(getInteger.y[5], integerToReal4.u) annotation (Line(origin={1.0,-128.0}, points={{-106.8,-22.9},{61,-22.9},{61,24},{107,24}}, color={255,127,0}));
   connect(integerToReal.y, data1) annotation (Line(origin={182.0,150.0}, points={{-28.0,0.0},{28.0,0.0}}, color={0,0,127}));
   connect(integerToReal1.y, data2) annotation (Line(origin={180.0,92.0}, points={{-26.0,-2.0},{26.0,-2.0},{26.0,2.0}}, color={0,0,127}));
   connect(integerToReal2.y, data3) annotation (Line(origin={182.0,29.0}, points={{-28.0,-1.0},{28.0,-1.0},{28.0,1.0}}, color={0,0,127}));

@@ -7,8 +7,7 @@ model SimpleStructure
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={0,-0.086,0.128}) annotation (Placement(transformation(origin={28.0,-114.0}, extent={{20.0,-20.0},{-20.0,20.0}})));
   Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame annotation (Placement(transformation(origin={114.0,-46.0}, extent={{-20.0,-20.0},{20.0,20.0}})));
 equation
-  connect(flange_a, joint_rotational.flange_a) annotation (Line(origin={-151.0,0.0}, points={{-29,0},
-          {29.12,0}}));
+  connect(flange_a, joint_rotational.flange_a) annotation (Line(origin={-151.0,0.0}, points={{-29,0},{29.12,0}}));
   connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(origin={66.0,-117.0}, points={{-18.0,3.0},{26.0,3.0}}, color={95,95,95}, thickness=0.5));
   connect(fixedTranslation.frame_b, joint_rotational.frame_a) annotation (Line(origin={-39.0,-77.0}, points={{47.0,-37.0},{-47.0,-37.0},{-47.0,37.0}}, color={95,95,95}, thickness=0.5));
   connect(fixedFrame.frame_a, world.frame_b) annotation (Line(origin={93.0,-80.0}, points={{1.0,34.0},{-21.0,34.0},{-21.0,-34.0},{-1.0,-34.0}}, color={95,95,95}, thickness=0.5));

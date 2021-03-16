@@ -42,19 +42,14 @@ equation
   connect(pathToAxis1.axisControlBus, axisControlBus) annotation (Line(origin={-32.0,-33.0}, points={{-16.0,29.0},{-14.0,29.0},{-14.0,-29.0},{16.0,-29.0}}, color={255,204,51}, thickness=0.5));
   connect(controller.axisControlBus, axisControlBus) annotation (Line(origin={-18.0,-38.0}, points={{2.0,24.0},{2.0,-24.0}}, color={255,204,51}, thickness=0.5));
   connect(motor.axisControlBus, axisControlBus) annotation (Line(origin={3.0,-37.0}, points={{19.0,25.0},{19.0,-25.0},{-19.0,-25.0}}, color={255,204,51}, thickness=0.5));
-  connect(initializeFlange.phi_start, axisControlBus.angle_ref) annotation (Line(origin={15.0,-61.0}, points={{29,-5},
-          {-30.95,-5},{-30.95,-0.95}},                                                                                                                color={0,0,127}));
-  connect(initializeFlange.w_start, axisControlBus.speed_ref) annotation (Line(origin={16.0,-68.0}, points={{28,-6},
-          {-31.95,-6},{-31.95,6.05}},                                                                                                              color={0,0,127}));
+  connect(initializeFlange.phi_start, axisControlBus.angle_ref) annotation (Line(origin={15.0,-61.0}, points={{29,-5},{-30.95,-5},{-30.95,-0.95}}, color={0,0,127}));
+  connect(initializeFlange.w_start, axisControlBus.speed_ref) annotation (Line(origin={16.0,-68.0}, points={{28,-6},{-31.95,-6},{-31.95,6.05}}, color={0,0,127}));
   connect(const.y, initializeFlange.a_start) annotation (Line(origin={13.0,-84.0}, points={{-36.0,-2.0},{31.0,-2.0},{31.0,2.0}}, color={0,0,127}));
   connect(Gearbox.flange_b, initializeFlange.flange) annotation (Line(origin={67.0,-38.0}, points={{-3.0,36.0},{7.0,36.0},{7.0,-36.0},{-1.0,-36.0}}));
   connect(accSensor.flange, Gearbox.flange_b) annotation (Line(origin={67.0,14.0}, points={{3.0,16.0},{-3.0,16.0},{-3.0,-16.0}}));
   connect(speedSensor.flange, Gearbox.flange_b) annotation (Line(origin={67.0,24.0}, points={{3.0,26.0},{-3.0,26.0},{-3.0,-26.0}}));
   connect(angleSensor.flange, Gearbox.flange_b) annotation (Line(origin={67.0,34.0}, points={{3.0,36.0},{-3.0,36.0},{-3.0,-36.0}}));
-  connect(angleSensor.phi, axisControlBus.angle) annotation (Line(origin={38.0,4.0}, points={{53,66},
-          {53,80},{-36,80},{-36,-65.95},{-53.95,-65.95}},                                                                                                       color={0,0,127}));
-  connect(speedSensor.w, axisControlBus.speed) annotation (Line(origin={38.0,-6.0}, points={{53,56},
-          {62,56},{62,98},{-36,98},{-36,-55.95},{-53.95,-55.95}},                                                                                                          color={0,0,127}));
-  connect(accSensor.a, axisControlBus.acceleration) annotation (Line(origin={38.0,-16.0}, points={{53,46},
-          {74,46},{74,114},{-36,114},{-36,-45.95},{-53.95,-45.95}},                                                                                                                color={0,0,127}));
+  connect(angleSensor.phi, axisControlBus.angle) annotation (Line(origin={38.0,4.0}, points={{53,66},{53,80},{-36,80},{-36,-65.95},{-53.95,-65.95}}, color={0,0,127}));
+  connect(speedSensor.w, axisControlBus.speed) annotation (Line(origin={38.0,-6.0}, points={{53,56},{62,56},{62,98},{-36,98},{-36,-55.95},{-53.95,-55.95}}, color={0,0,127}));
+  connect(accSensor.a, axisControlBus.acceleration) annotation (Line(origin={38.0,-16.0}, points={{53,46},{74,46},{74,114},{-36,114},{-36,-45.95},{-53.95,-45.95}}, color={0,0,127}));
 end OneJoint_MaxLoad;

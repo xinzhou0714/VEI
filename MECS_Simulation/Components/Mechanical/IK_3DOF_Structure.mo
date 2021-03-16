@@ -21,14 +21,9 @@ equation
   connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(origin={66.0,-117.0}, points={{-18.0,3.0},{26.0,3.0}}, color={95,95,95}, thickness=0.5));
   connect(fixedTranslation.frame_b, joint_rotational.frame_a) annotation (Line(origin={-39.0,-77.0}, points={{47.0,-37.0},{-59.0,-37.0},{-59.0,-19.0}}, color={95,95,95}, thickness=0.5));
   connect(fixedFrame.frame_a, world.frame_b) annotation (Line(origin={93.0,-80.0}, points={{1.0,34.0},{-21.0,34.0},{-21.0,-34.0},{-1.0,-34.0}}, color={95,95,95}, thickness=0.5));
-  connect(joint_rotational.frame_b, joint_rotational1.frame_a) annotation (Line(origin={-97.0,-10.0}, points={{-0.24,
-          -14},{-0.24,14},{-1,14}},                                                                                                                color={95,95,95}, thickness=0.5));
-  connect(joint_rotational1.frame_b, joint_rotational2.frame_a) annotation (Line(origin={-98.0,89.0}, points={{0.76,
-          -13},{-2,-13},{-2,-11},{2,-11},{2,13}},                                                                                                                            color={95,95,95}, thickness=0.5));
-  connect(joint_rotational.flange_a, flange_a) annotation (Line(origin={-110.0,9.0}, points={{-17.64,
-          -69},{-28,-69},{-28,-31},{28,-31},{28,69}}));
-  connect(joint_rotational1.flange_a, flange_a2) annotation (Line(origin={-70.0,84.0}, points={{-57.64,
-          -44},{-57.64,-34},{-68,-34},{-68,-6},{68,-6},{68,44}}));
-  connect(joint_rotational2.flange_a, flange_a1) annotation (Line(origin={-15.0,65.0}, points={{-110.64,
-          73},{-110.64,75},{-121,75},{-121,35},{121,35},{121,-75}}));
+  connect(joint_rotational.frame_b, joint_rotational1.frame_a) annotation (Line(origin={-97.0,-10.0}, points={{-0.24,-14},{-0.24,14},{-1,14}}, color={95,95,95}, thickness=0.5));
+  connect(joint_rotational1.frame_b, joint_rotational2.frame_a) annotation (Line(origin={-98.0,89.0}, points={{0.76,-13},{-2,-13},{-2,-11},{2,-11},{2,13}}, color={95,95,95}, thickness=0.5));
+  connect(joint_rotational.flange_a, flange_a) annotation (Line(origin={-110.0,9.0}, points={{-17.64,-69},{-28,-69},{-28,-31},{28,-31},{28,69}}));
+  connect(joint_rotational1.flange_a, flange_a2) annotation (Line(origin={-70.0,84.0}, points={{-57.64,-44},{-57.64,-34},{-68,-34},{-68,-6},{68,-6},{68,44}}));
+  connect(joint_rotational2.flange_a, flange_a1) annotation (Line(origin={-15.0,65.0}, points={{-110.64,73},{-110.64,75},{-121,75},{-121,35},{121,35},{121,-75}}));
 end IK_3DOF_Structure;
