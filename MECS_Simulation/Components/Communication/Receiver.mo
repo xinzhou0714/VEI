@@ -1,11 +1,11 @@
 within MECS_Simulation.Components.Communication;
 model Receiver
   annotation (Diagram(coordinateSystem(extent={{-200.0,-200.0},{200.0,200.0}}, grid={2.0,2.0})), Icon(coordinateSystem(extent={{-200.0,-200.0},{200.0,200.0}}, grid={2.0,2.0}), graphics={Bitmap(origin={0.0,0.0}, extent={{-200.0,-200.0},{200.0,200.0}}, fileName="modelica://MECS_Simulation/Resources/Images/receiver.png")}));
-  Modelica_DeviceDrivers.Blocks.Communication.UDPReceive uDPReceive annotation (Placement(transformation(origin={-129.0,167.0}, extent={{-25.0,-25.0},{25.0,25.0}}, rotation=270.0)));
-  Modelica_DeviceDrivers.Blocks.Packaging.SerialPackager.UnpackUnsignedInteger Byte1(width=8) annotation (Placement(transformation(origin={-129.0,98.99999999999999}, extent={{-23.0,-23.0},{23.0,23.0}})));
-  Modelica_DeviceDrivers.Blocks.Packaging.SerialPackager.UnpackUnsignedInteger Byte2(width=8) annotation (Placement(transformation(origin={-129.0,35.0}, extent={{-23.0,-23.0},{23.0,23.0}})));
-  Modelica_DeviceDrivers.Blocks.Packaging.SerialPackager.UnpackUnsignedInteger Byte3(width=8) annotation (Placement(transformation(origin={-129.0,-25.0}, extent={{-23.0,-23.0},{23.0,23.0}})));
-  Modelica_DeviceDrivers.Blocks.Packaging.SerialPackager.UnpackUnsignedInteger Byte4(width=8) annotation (Placement(transformation(origin={-128.99999999999994,-87.00000000000003}, extent={{-23.0,-23.0},{23.0,23.0}})));
+  Modelica_DeviceDrivers.Blocks.Communication.UDPReceive uDPReceive(port_recv=24545) annotation (Placement(transformation(origin={-129.0,167.0}, extent={{-25.0,-25.0},{25.0,25.0}}, rotation=270.0)));
+  Modelica_DeviceDrivers.Blocks.Packaging.SerialPackager.UnpackUnsignedInteger Byte1(width=8, nu=1) annotation (Placement(transformation(origin={-129.0,98.99999999999999}, extent={{-23.0,-23.0},{23.0,23.0}})));
+  Modelica_DeviceDrivers.Blocks.Packaging.SerialPackager.UnpackUnsignedInteger Byte2(width=8, nu=1) annotation (Placement(transformation(origin={-129.0,35.0}, extent={{-23.0,-23.0},{23.0,23.0}})));
+  Modelica_DeviceDrivers.Blocks.Packaging.SerialPackager.UnpackUnsignedInteger Byte3(width=8, nu=1) annotation (Placement(transformation(origin={-129.0,-25.0}, extent={{-23.0,-23.0},{23.0,23.0}})));
+  Modelica_DeviceDrivers.Blocks.Packaging.SerialPackager.UnpackUnsignedInteger Byte4(width=8, nu=1) annotation (Placement(transformation(origin={-128.99999999999994,-87.00000000000003}, extent={{-23.0,-23.0},{23.0,23.0}})));
   Modelica_DeviceDrivers.Blocks.Packaging.SerialPackager.GetInteger getInteger(n=6) annotation (Placement(transformation(origin={-130.00000000000006,-152.0}, extent={{-22.0,-22.0},{22.0,22.0}})));
   Modelica.Blocks.Interfaces.IntegerOutput Command1 annotation (Placement(transformation(origin={-56.0,210.0}, extent={{-10.0,-10.0},{10.0,10.0}}, rotation=90.0)));
   Modelica.Blocks.Interfaces.IntegerOutput Command2 annotation (Placement(transformation(origin={-16.0,210.0}, extent={{-10.0,-10.0},{10.0,10.0}}, rotation=90.0)));
@@ -25,10 +25,6 @@ model Receiver
   Modelica.Blocks.Interfaces.RealOutput data6 annotation (Placement(transformation(origin={210.0,-160.0}, extent={{-10.0,-10.0},{10.0,10.0}})));
 equation
   connect(uDPReceive.pkgOut, Byte1.pkgIn) annotation (Line(origin={-129.0,140.0}, points={{0,0},{0,-16.16}}));
-  connect(Byte1.pkgOut[1], Byte2.pkgIn) annotation (Line(origin={-129.0,67.0}, points={{0,7.16},{0,-7.16}}));
-  connect(Byte2.pkgOut[1], Byte3.pkgIn) annotation (Line(origin={-129.0,5.0}, points={{0,5.16},{0,-5.16}}));
-  connect(Byte3.pkgOut[1], Byte4.pkgIn) annotation (Line(origin={-129.0,-56.0}, points={{0,6.16},{0,-6.16}}));
-  connect(Byte4.pkgOut[1], getInteger.pkgIn) annotation (Line(origin={-129.0,-118.0}, points={{0,6.16},{0,-10.24},{-1,-10.24}}));
   connect(Byte1.y, Command1) annotation (Line(origin={-80.0,155.0}, points={{-23.7,-56},{24,-56},{24,55}}, color={255,127,0}));
   connect(Byte2.y, Command2) annotation (Line(origin={-60.0,123.0}, points={{-43.7,-88},{44,-88},{44,87}}, color={255,127,0}));
   connect(Byte3.y, Command3) annotation (Line(origin={-39.0,93.0}, points={{-64.7,-118},{65,-118},{65,117}}, color={255,127,0}));
@@ -45,4 +41,11 @@ equation
   connect(integerToReal3.y, data4) annotation (Line(origin={182.0,-32.0}, points={{-28.0,-2.0},{28.0,-2.0},{28.0,2.0}}, color={0,0,127}));
   connect(integerToReal4.y, data5) annotation (Line(origin={182.0,-102.0}, points={{-28.0,-2.0},{28.0,-2.0},{28.0,2.0}}, color={0,0,127}));
   connect(integerToReal5.y, data6) annotation (Line(origin={187.0,-162.0}, points={{-33.0,-2.0},{23.0,-2.0},{23.0,2.0}}, color={0,0,127}));
+  connect(Byte1.pkgOut[1], Byte2.pkgIn)
+    annotation (Line(points={{-129,74.16},{-129,59.84}}, color={0,0,0}));
+  connect(Byte2.pkgOut[1], Byte3.pkgIn)
+    annotation (Line(points={{-129,10.16},{-129,-0.16}}, color={0,0,0}));
+  connect(Byte3.pkgOut[1], Byte4.pkgIn)
+    annotation (Line(points={{-129,-49.84},{-129,-62.16}}, color={0,0,0}));
+  connect(Byte4.pkgOut[1], getInteger.pkgIn) annotation (Line(points={{-129,-111.84},{-129,-128.24},{-130,-128.24}}, color={0,0,0}));
 end Receiver;

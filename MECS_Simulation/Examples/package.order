@@ -1,5 +1,6 @@
 OneJoint_MaxLoad
-OneJoint_MaxLoad_RealTime
+OneJoint_MaxLoad_Realtime
 IK_2Link
 IK_2Link_Realtime
 FDMU_UR10
+FDMU_UR10_Realtime
