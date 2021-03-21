@@ -35,3 +35,17 @@ J_down=[omega_b1,omega_b2,omega_bee]
 Jm=[J_up;J_down]
 
 %T_res(p1, p2 ,p3, r1, r2 ,r3)=transl(p1,p2,p3)*trotx(r1)*troty(r2)*trotz(r3)
+
+
+%%%%% code for test
+
+rotm2eul(double(Rbeefun(deg2rad(10),deg2rad(30),deg2rad(20))))
+
+rotm2eul(double(Rbeefun(deg2rad(10),deg2rad(30),deg2rad(66))))
+
+rotm2eul(double(Rbeefun(deg2rad(-10),deg2rad(-30),deg2rad(-50))))
+
+rotm2eul(double(Rbeefun(deg2rad(-10),deg2rad(-30),deg2rad(-51))))
+
+% conclusion q1+q2+q3 should not out of range [-90 ,90], otherwise the
+% rotation of third axis will be 2*pi
