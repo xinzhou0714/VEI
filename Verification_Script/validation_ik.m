@@ -13,7 +13,10 @@ fraction=100;
 %[m,n]=myfun(2,4)
 [x,y,z,rx,ry,rz]=fk(H,L1,L2,0,0,0)
 
-fk_pos_vector(H,L1,L2,0,0,0)
+fk_pos_vector(H,L1,L2,0,1,0)
+
+
+
 function [x,y,z,rx,ry,rz]=fk(H,L1,L2,q1,q2,q3)
 Tb1=transl(0,0,H)*trotx(pi/2)*trotz(q1);
 T12=transl(L1,0,0)*trotz(q2);
@@ -34,4 +37,9 @@ end
 function mat=fk_pos_vector(H,L1,L2,q1,q2,q3)
 [x,y,z,rx,ry,rz]=fk(H,L1,L2,q1,q2,q3);
 mat=[x;y;z;rx;ry;rz];
+end
+
+
+function J=GetJacobianMatrix()
+
 end
