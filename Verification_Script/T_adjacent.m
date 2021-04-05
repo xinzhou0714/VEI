@@ -1,6 +1,4 @@
-function T = T_SingleJoint(OX	 ,OY    ,OZ    ,PX    ,PY	 ,PZ)
-%T_JOINT Summary of this function goes here
-%   Detailed explanation goes here
+function T = T_adjacent(OX	 ,OY    ,OZ    ,PX    ,PY	 ,PZ)
 %   OX:rotation around old x axis
 %   OY:rotation around old y axis
 %   OZ:rotation around old z axis
