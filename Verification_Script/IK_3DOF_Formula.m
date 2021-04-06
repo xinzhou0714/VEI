@@ -5,8 +5,6 @@ syms q [1 3]
 syms a b c
 syms p1 p2 p3 r1 r2 r3
 
-f(a,b,c)=trotx(a)*troty(b)*trotz(c)
-
 Tb1=transl(0,0,H)*trotx(pi/2)*trotz(q1);
 T12=transl(L1,0,0)*trotz(q2);
 T2ee=transl(L2,0,0)*trotz(q3);
