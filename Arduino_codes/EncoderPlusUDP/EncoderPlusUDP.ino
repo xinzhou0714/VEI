@@ -131,7 +131,6 @@ void loop() {
         Serial.println(Mode ? "Forward" : "Inverse");
     }
 
-    // UDP feature to be implementde
 
 }
 
